@@ -1,16 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ScriptLoaderService } from './services/loader.service'; // Asegúrate de que la ruta sea correcta
-
+import { SliderComponent } from './components/slider/slider.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { HeaderComponent } from './components/ui/header/header.component';
+import { FooterComponent } from './components/ui/footer/footer.component';
+import { ByBudgetComponent } from './components/by-budget/by-budget.component';
+import { OthersComponent } from './components/others/others.component';
+import { UsedComponent } from './components/used/used.component';
+import { ByBrandComponent } from './components/by-brand/by-brand.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { CommonModule } from '@angular/common';
+import { GlobalService } from './services/global.service';
+import { HeaderShopComponent } from './components/ui/header-shop/header-shop.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [
+    CommonModule, 
+    CarDetailComponent,
+    // HeaderComponent,
+    HeaderShopComponent,
+    SliderComponent,
+    FilterComponent,
+    ByBudgetComponent,
+    OthersComponent,
+    UsedComponent,
+    ByBrandComponent,
+    ShopComponent,
+    FooterComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
   title = 'delta-autos';
-  constructor(private scriptLoader: ScriptLoaderService) {}
+  constructor(private scriptLoader: ScriptLoaderService, public globalService: GlobalService) {}
   ngOnInit() {
     this.loadScripts();
   }
