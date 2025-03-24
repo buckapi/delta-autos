@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ScriptLoaderService } from '../../services/loader.service';
+import { GlobalService } from '../../services/global.service';
 
 @Component({
   selector: 'app-shop',
@@ -8,7 +9,9 @@ import { ScriptLoaderService } from '../../services/loader.service';
   styleUrl: './shop.component.css'
 })
 export class ShopComponent {
-  constructor(public scriptLoader: ScriptLoaderService) { }
+  constructor(public scriptLoader: ScriptLoaderService,
+    public global:GlobalService
+  ) { }
   ngOnInit(): void {
     this.loadScripts();
   }
