@@ -26,7 +26,7 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
     FilterComponent,
     ByBudgetComponent,
     OthersComponent,
-    UsedComponent,
+    // UsedComponent,
     ByBrandComponent,
     ShopComponent,
     FooterComponent
