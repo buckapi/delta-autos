@@ -15,18 +15,22 @@ import { GlobalService } from './services/global.service';
 import { HeaderShopComponent } from './components/ui/header-shop/header-shop.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { BlogGridComponent } from './components/blog-grid/blog-grid.component';
+import { ContactComponent } from './components/contact/contact.component';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     CommonModule, 
     CarDetailComponent,
+    ContactComponent,
     // HeaderComponent,
     HeaderShopComponent,
     SliderComponent,
     FilterComponent,
     ByBudgetComponent,
     OthersComponent,
+    BlogGridComponent,
     // UsedComponent,
     ByBrandComponent,
     ShopComponent,

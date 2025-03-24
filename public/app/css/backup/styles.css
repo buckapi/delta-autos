@@ -457,11 +457,11 @@
   display: block;
   text-align: center;
   line-height: 24px;
-  font-weight: 300;
+  font-weight: 500;
   padding: 37px 0px;
   letter-spacing: 0px;
   color: #24272C;
-  font-size: 26px;
+  font-size: 16px;
   text-transform: capitalize;
   transition: all 500ms ease;
   -moz-transition: all 500ms ease;
@@ -565,8 +565,8 @@
   position: relative;
   display: block;
   line-height: 22.4px;
-  font-weight: 300;
-  font-size: 22px;
+  font-weight: 500;
+  font-size: 16px;
   text-transform: capitalize;
   color: #24272C;
   transition: all 500ms ease;
@@ -666,7 +666,7 @@
   position: relative;
   display: block;
   line-height: 22.4px;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   text-transform: capitalize;
   color: #24272C;
@@ -919,7 +919,7 @@
 .mobile-menu .navigation li > ul > li > ul > li > a {
   padding: 7px 0px !important;
   font-size: 14px !important;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .mobile-menu .navigation li > ul > li > ul {
@@ -1106,7 +1106,7 @@
 .box-avatar.dropdown-toggle .name {
   color: #24272C;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 150%;
 }
 .box-avatar.dropdown-toggle i {
@@ -1123,7 +1123,7 @@
 }
 .dropdown-menu.dashboard-menu a {
   padding: 15.4px 24px;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   color: #24272C;
   position: relative;
@@ -1159,7 +1159,7 @@
 }
 .sc-button span {
   color: #FFFFFF;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   position: relative;
   -webkit-transition: all 0.3s ease;
@@ -1236,7 +1236,7 @@
 
 .view-car {
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 17.64px;
   font-family: "Outfit", sans-serif;
   color: #24272C;
@@ -1329,7 +1329,7 @@
   content: "\f279";
   font-family: "Font Awesome 5 Pro";
   font-size: 12px;
-  font-weight: 300;
+  font-weight: 500;
   margin-right: 5px;
   color: #fff;
 }
@@ -1638,7 +1638,7 @@
   content: "\f279";
   font-family: "Font Awesome 5 Pro";
   font-size: 12px;
-  font-weight: 300;
+  font-weight: 500;
   margin-right: 5px;
   color: #696665;
 }
@@ -1729,7 +1729,7 @@
   border: 1px solid #B6B6B6;
   padding: 11px 14px 13px 17px;
   color: #24272C;
-  font-weight: 300;
+  font-weight: 500;
   background-color: #FFFFFF;
   border-radius: 10px;
   -webkit-transition: all 0.3s ease;
@@ -1788,7 +1788,7 @@
   background-color: #FFFFFF;
   border: 1px solid #EDEDED;
   color: #24272C;
-  font-weight: 300;
+  font-weight: 500;
   padding-right: 5px;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -3058,7 +3058,7 @@
 .flat-agent .icon-group .icon-phone::before {
   font-family: "Font Awesome 5 Pro";
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   content: "\f4d2";
   transform: rotate(99deg);
   display: inline-block;
@@ -3071,7 +3071,7 @@
 .flat-agent .icon-group .icon-email::before {
   font-family: "Font Awesome 5 Pro";
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   content: "\f0e0";
   text-decoration-line: unset;
   margin-right: 10px;
@@ -3121,7 +3121,7 @@
 .flat-agent-detail .icon-group .icon-map::before {
   font-family: "Font Awesome 5 Pro";
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   content: "\f3c5";
   display: inline-block;
   margin-right: 12px;
@@ -5003,7 +5003,7 @@
 }
 .heading-widget .money {
   font-size: 30px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 37.8px;
   margin-bottom: 16px;
 }
@@ -5120,7 +5120,7 @@
   border: 1px solid #EDEDED;
   border-radius: 10px;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 17.64px;
   color: #24272C;
   padding: 9px 10px 9px 10px;
@@ -6311,7 +6311,7 @@
 }
 .slider .slider-item .content .chat-wrap .chat {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 20px;
   background: #FFFFFF;
   padding: 15px 20px;
@@ -6650,7 +6650,7 @@
   border-bottom: 2px solid transparent;
 }
 .flat-tabs .tab-title.style li:hover h5, .flat-tabs .tab-title.style li.active h5 {
-  font-weight: 300;
+  font-weight: 500;
   color: #24272C !important;
   border-bottom: 2px solid #0d6efd;
 }
@@ -6660,7 +6660,7 @@
   background-color: #EDEDED;
   border-radius: 10px;
   margin-right: 10px;
-  font-weight: 300;
+  font-weight: 500;
 }
 .flat-tabs .tab-title.style1 li h5 {
   font-style: 16px;
@@ -6670,7 +6670,7 @@
 }
 .flat-tabs .tab-title.style1 li:hover h5, .flat-tabs .tab-title.style1 li.active h5 {
   color: #FFFFFF;
-  font-weight: 300;
+  font-weight: 500;
 }
 .flat-tabs .wrap-icon .icon-autodeal-trending {
   font-size: 24px;
@@ -6879,7 +6879,7 @@
   color: #24272C;
   border-radius: 100px !important;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22px;
   font-family: "Outfit", sans-serif;
   display: block;
@@ -6927,7 +6927,7 @@
 .specifications-wrap.style2 .specifications .specifications-content p {
   margin-bottom: 1px;
   font-size: 26px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 32px;
 }
 .specifications-wrap .load-more .chat {
@@ -7653,7 +7653,7 @@
 }
 .side-bar .widget-categories li a {
   color: #24272C;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   font-size: 16px;
   display: flex;
@@ -7995,7 +7995,7 @@
 }
 .sidebar-left-listing .nice-select .current {
   color: #24272C !important;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .list-car-list-1 .box-car-list:not(:last-child) {
@@ -8070,7 +8070,7 @@
 
 .filter {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22px;
   padding: 9px 18px;
   background: #0d6efd;
@@ -8301,7 +8301,7 @@
   border-radius: 16px;
   color: #FFF;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   position: relative;
 }
@@ -8463,7 +8463,7 @@
 .db-email-box .content p {
   color: rgba(255, 255, 255, 0.53);
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   text-transform: uppercase;
   font-family: "DM Sans";
   margin-bottom: -6px;
@@ -8649,7 +8649,7 @@
 }
 
 .widget_login_menu_widget .dropdown-menu ul li a {
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   color: #24272C;
   position: relative;
@@ -8746,7 +8746,7 @@
 
 .tfcl-dashboard-overview .content-overview h5 {
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.68px;
   color: #24272C;
   margin-bottom: 2px;
@@ -8789,7 +8789,7 @@
 
 .tfcl-dashboard .tfcl-dashboard-listing .title-dashboard-table {
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 30.24px;
   margin-bottom: 29px;
 }
@@ -8847,7 +8847,7 @@
 
 .tfcl-dashboard .tfcl-dashboard-listing .result-text {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   margin-top: 11px;
   display: block;
@@ -8914,7 +8914,7 @@
 
 .tfcl-table-listing .tfcl-listing-product .tfcl-listing-title {
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.68px;
   color: #24272C;
   margin-bottom: 2px;
@@ -8953,7 +8953,7 @@
   color: #0d6efd;
   text-decoration: none;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
 }
 
@@ -8966,7 +8966,7 @@
 
 .tfcl-dashboard .tfcl-page-insight h5 {
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 30.24px;
   margin: 0;
   margin-bottom: 0px;
@@ -9017,7 +9017,7 @@
 
 .tfcl-dashboard-reviews .comment-by-user .review-name {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #161E2D;
   margin-bottom: 0px;
@@ -9078,7 +9078,7 @@
 .tfcl-dashboard-reviews h5 {
   margin-bottom: 41px;
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 30.24px;
   margin: 0;
   margin-bottom: 38px;
@@ -9136,7 +9136,7 @@
 .payment-method-wrap .wire-transfer-info p {
   margin-bottom: 20px;
   color: #000;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .payment-method-wrap label {
@@ -9216,7 +9216,7 @@
 .tfcl-table-listing .list-wrapper p {
   color: #83827F;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 30px;
   margin-bottom: 0;
 }
@@ -9237,12 +9237,12 @@
 .tfcl-table-listing .mypt-brand {
   color: #86898E;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .tfcl-table-listing .column-status .tfcl-listing-status {
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 17.64px;
   background: var(--theme-primary-rgba);
   padding: 6px 14px 6px 14px;
@@ -9289,7 +9289,7 @@
 .tfcl-table-listing .column-controller {
   font-family: "Inter";
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 19.6px;
   text-align: left;
   vertical-align: baseline;
@@ -9520,7 +9520,7 @@
   border: 1px solid #EDEDED;
   color: #24272C;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   border-radius: 10px;
 }
@@ -9566,7 +9566,7 @@
   border-radius: 12px;
   min-width: 126px;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 17.64px;
   padding: 17px 20px;
 }
@@ -9626,7 +9626,7 @@
 
 .controller-sorting .count-list {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #24272C;
 }
@@ -9643,7 +9643,7 @@
 
 .controller-sorting .sorting-input .label {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #696665;
   flex-shrink: 0;
@@ -9657,7 +9657,7 @@
 
 .controller-sorting .sorting-input .nice-select .current {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #24272C;
 }
@@ -9685,7 +9685,7 @@
 
 .tfcl-add-listing .upload-media a {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #fff;
   background: #0d6efd;
@@ -9765,7 +9765,7 @@
 .tfcl-add-listing .form-group label {
   margin-bottom: 8px;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 17.64px;
   color: #24272C;
 }
@@ -10006,7 +10006,7 @@
 .tfcl-add-listing.car-attr .list-attrach .item .inner a {
   all: unset;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #24272C;
   cursor: pointer;
@@ -10034,7 +10034,7 @@
 .group-button-submit .pre-btn {
   min-width: 180px;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #fff;
   border-radius: 14px;
@@ -10053,7 +10053,7 @@
 .group-button-submit .second-btn {
   min-width: 180px;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #0d6efd;
   border-radius: 14px;
@@ -10108,7 +10108,7 @@
 
 .tfcl_choose_avatar .choose-box label {
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 17.64px;
   color: #24272C;
   margin-bottom: 10px;
@@ -10128,7 +10128,7 @@
   transform: translateY(-50%);
   color: #fff;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   padding: 10px 18px;
   border: none;
@@ -10252,7 +10252,7 @@
 
 .tfcl-message .list-user-chat .user-item .name {
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.68px;
   color: #24272C;
 }
@@ -10310,7 +10310,7 @@
 
 .tfcl-message .header-inner-chat .user-infor .name {
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.68px;
   color: #24272C;
 }
@@ -10430,7 +10430,7 @@
 
 .tfcl-message .controller-chat .form-message a {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #fff;
   padding: 10px 42px;
@@ -10461,7 +10461,7 @@
 
 #compare_listing_wrap .compare-listing .compare-listing-body .tfcl-compare-listing-button {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   padding: 14px 86px;
   background: #0d6efd;
@@ -10534,7 +10534,7 @@
 
 #compare_listing_wrap .compare-listing .compare-listing-body .compare-thumb-main .compare-thumb .tfcl-listing-title {
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.68px;
   margin-bottom: 8px;
   -webkit-line-clamp: 1;
@@ -10584,7 +10584,7 @@
   cursor: pointer;
   flex: 1;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #24272C;
   border: 1px solid #EDEDED;
@@ -10612,7 +10612,7 @@
 
 .wrap-single-compare .compare-table .title-table {
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 30.24px;
   color: #24272C;
   margin-bottom: 20px;
@@ -10621,7 +10621,7 @@
 .wrap-single-compare .compare-table .title-tr {
   background: #F8F8F9;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #24272C;
   padding: 10px 20px;
@@ -10724,7 +10724,7 @@
   border-radius: 14px;
   color: #fff;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 20.16px;
   text-align: center;
 }
@@ -10843,7 +10843,7 @@
   border-radius: 14px;
   padding: 13px 34px;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 20.16px;
   color: #0d6efd;
 }
@@ -10918,7 +10918,7 @@
 }
 
 .widget-dealer-contact .open-store ul li .right {
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .widget-dealer-contact .rating {
@@ -10947,7 +10947,7 @@
 
 .widget-dealer-contact .button-form-1 {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 20.16px;
   color: #fff;
   width: 100%;
@@ -10961,7 +10961,7 @@
 
 .widget-dealer-contact .button-form-2 {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 20.16px;
   color: #fff;
   width: 100%;
@@ -11008,7 +11008,7 @@
   padding: 14px 20px;
   border-radius: 14px;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 20.16px;
   background: transparent;
   width: 100%;
@@ -11036,7 +11036,7 @@
   padding: 14px 20px;
   border-radius: 14px;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 20.16px;
   background: transparent;
   text-align: center;
@@ -11112,7 +11112,7 @@
 .widget-book-apoint a {
   background: #0d6efd;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 20.16px;
   color: #fff;
   padding: 15px 36px;
@@ -11369,7 +11369,7 @@
 }
 .blog-article-item .content .read-more {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 20.16px;
   color: #0d6efd;
 }
@@ -12336,7 +12336,7 @@
   padding: 4px 10px 4px 10px;
   background: #0d6efd;
   font-size: 12px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 18px;
   color: #FFFFFF;
   width: 100%;
@@ -12416,7 +12416,7 @@
 
 #compare_listing_wrap .compare-listing .compare-listing-body .tfcl-compare-listing-button {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   padding: 14px 86px;
   background: #0d6efd;
@@ -12481,7 +12481,7 @@
 }
 #compare_listing_wrap .compare-listing .compare-listing-body .compare-thumb-main .compare-thumb .tfcl-listing-title {
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.68px;
   margin-bottom: 8px;
   -webkit-line-clamp: 1;
@@ -12526,7 +12526,7 @@
   cursor: pointer;
   flex: 1;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #24272C;
   border: 1px solid #EDEDED;
@@ -12551,7 +12551,7 @@
 }
 .wrap-single-compare .compare-table .title-table {
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 30.24px;
   color: #24272C;
   margin-bottom: 20px;
@@ -12559,7 +12559,7 @@
 .wrap-single-compare .compare-table .title-tr {
   background: #F8F8F9;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22.4px;
   color: #24272C;
   padding: 10px 20px;
@@ -12926,25 +12926,25 @@ h1 {
 h2 {
   font-size: 30px;
   line-height: 37.8px;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 h3 {
   font-size: 24px;
   line-height: 30.24px;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 h4 {
   font-size: 20px;
   line-height: 25.2px;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 h5 {
   font-size: 18px;
   line-height: 22.68px;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 h6 {
@@ -13155,7 +13155,7 @@ button {
 }
 
 .fw-5 {
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .fw-6 {
@@ -13965,7 +13965,7 @@ body .dribbble img {
   border: 1px solid #EDEDED;
   border-radius: 14px;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 17.64px;
   color: #24272C;
   font-family: "Outfit", sans-serif;
@@ -14009,7 +14009,7 @@ body .dribbble img {
 .dropdown > a::after {
   font-family: "Font Awesome 5 Pro";
   font-size: 10px;
-  font-weight: 300;
+  font-weight: 500;
   content: "\f078";
   position: absolute;
   color: #fff;
@@ -14315,7 +14315,7 @@ body .dribbble img {
 
 .map-listing-item .location .type {
   font-size: 12px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 16px;
   color: #14a077;
   background: rgba(20, 129, 96, 0.1);
@@ -14362,7 +14362,7 @@ body .dribbble img {
   text-align: center;
   font-size: 16px !important;
   color: #ffffff !important;
-  font-weight: 300 !important;
+  font-weight: 500 !important;
   border-radius: 50%;
   width: 40px !important;
   height: 40px !important;
@@ -14475,7 +14475,7 @@ body .dribbble img {
 .caption {
   margin-bottom: 18px;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 17px;
   color: #24272C;
 }
@@ -14538,7 +14538,7 @@ body .dribbble img {
 }
 
 .slider-labels .caption {
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   font-family: "Inter", sans-serif;
 }
