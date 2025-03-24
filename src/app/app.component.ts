@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { GlobalService } from './services/global.service';
 import { HeaderShopComponent } from './components/ui/header-shop/header-shop.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
+import { BlogComponent } from './components/blog/blog.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -29,7 +30,8 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
     // UsedComponent,
     ByBrandComponent,
     ShopComponent,
-    FooterComponent
+    FooterComponent,
+    BlogComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
