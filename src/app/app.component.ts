@@ -17,6 +17,7 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogGridComponent } from './components/blog-grid/blog-grid.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -24,6 +25,7 @@ import { ContactComponent } from './components/contact/contact.component';
     CommonModule, 
     CarDetailComponent,
     ContactComponent,
+    DashboardComponent,
     // HeaderComponent,
     HeaderShopComponent,
     SliderComponent,

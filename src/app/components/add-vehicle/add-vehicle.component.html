@@ -1,0 +1,199 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content-area">
+                <main id="main" class="main-content">
+                    <div class="tfcl-dashboard">
+                        <h1 class="admin-title mb-3">Agregar Vehículo</h1>
+
+                        <!-- Sección de Fotos -->
+                        <div class="tfcl-add-listing upload-photo">
+                            <h3>Subir Fotos</h3>
+                            <div class="upload-media">
+                                <!-- <div class="inner">
+                                    <a href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
+
+                                        </svg> Seleccionar fotos
+                                    </a>
+                                    <div class="desc">o arrastra fotos aquí <br><span>(Máximo 10 fotos)</span></div>
+                                </div> -->
+                                <div class="custom-file-upload">
+                                    <div *ngIf="selectedImage" class="image-preview">
+                                        <img [src]="selectedImagePrev" alt="Selected Image" class="img-thumbnail"
+                                             style="border-radius: 50%; cursor: pointer; border: 5px solid #3ba5a8; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); transition: box-shadow 0.3s ease, transform 0.3s ease; max-width: 150px; max-height: 150px;" />
+                                    </div>
+                                    <input #imageUpload id="imageUpload" type="file" (change)="onImageChange($event)" class="form-control"
+                                           accept="image/*" style="display: none;" />
+                                    <label for="imageUpload" class="btn mb-2 me-2 btn-primary">
+                                        <i class="fa-solid fa-search me-2"></i>Imágen de producto
+                                    </label>
+                                    <div *ngIf="!selectedImage" class="text-danger">* Por favor, suba una imagen.</div>
+                                </div>
+                            </div>
+                            <div class="thumbnail-media">
+                                <!-- Miniaturas de fotos subidas -->
+                                <!-- <div class="item" *ngFor="let photo of photos">
+                                    <img [src]="photo.url" alt="thumb">
+                                    <a (click)="removePhoto(photo)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        </svg>
+                                    </a>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <!-- Detalles del Vehículo -->
+                        <div class="tfcl-add-listing car-details">
+                            <h3>Detalles del Vehículo</h3>
+
+                            <!-- <form (ngSubmit)="onSubmit()"> -->
+                                <form (ngSubmit)="onSubmit()">
+
+                                    <!-- Información Básica -->
+                                    <div class="form-group">
+                                        <label>Nombre del Vehículo *</label>
+                                        <input name="name" [(ngModel)]="vehicle.name" required class="form-control" placeholder="Ej: Toyota Corolla Hybrid">
+                                    </div>
+                                
+                                    <div class="form-group-4">
+                                        <!-- Tipo de Vehículo -->
+                                        <div class="form-group">
+                                            <label>Tipo de Vehículo *</label>
+                                            <select name="vehicleType" [(ngModel)]="vehicle.vehicleType" required class="form-control">
+                                                <option [ngValue]="null" disabled>Seleccione un tipo</option>
+                                                <option *ngFor="let type of vehicleTypes" [ngValue]="type">
+                                                    {{ type.name }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                
+                                        <!-- Marca -->
+                                        <div class="form-group">
+                                            <label>Marca *</label>
+                                            <select name="brand" [(ngModel)]="vehicle.brand" required class="form-control" (change)="onBrandChange($event)">
+                                                <option [ngValue]="null" disabled>Seleccione marca</option>
+                                                <option *ngFor="let brand of brands" [ngValue]="brand.id">
+                                                    {{ brand.name }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                
+                                        <!-- Modelo -->
+                                        <div class="form-group">
+                                            <label>Modelo *</label>
+                                            <select name="model" [(ngModel)]="vehicle.model" required class="form-control">
+                                                <option [ngValue]="null" disabled>Seleccione modelo</option>
+                                                <option *ngFor="let model of models" [ngValue]="model.id">
+                                                    {{ model.name }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                
+                                        <!-- Año -->
+                                        <div class="form-group">
+                                            <label>Año *</label>
+                                            <input name="year" [(ngModel)]="vehicle.year" required class="form-control" min="1990">
+                                        </div>
+                                    </div>
+                                
+                                    <!-- Especificaciones Técnicas -->
+                                    <div class="form-group-4">
+                                        <!-- Kilometraje -->
+                                        <div class="form-group">
+                                            <label>Kilometraje</label>
+                                            <input name="mileage" [(ngModel)]="vehicle.mileage" class="form-control" placeholder="Ej: 50,000 km">
+                                        </div>
+                                
+                                        <!-- Tipo de Transmisión -->
+                                        <div class="form-group">
+                                            <label>Transmisión</label>
+                                            <select name="transmissionType" [(ngModel)]="vehicle.transmissionType" class="form-control">
+                                                <option [ngValue]="null" disabled>Seleccione transmisión</option>
+                                                <option *ngFor="let transmission of transmissionTypes" [ngValue]="transmission">
+                                                    {{ transmission.name }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                
+                                        <!-- Tipo de Combustible -->
+                                        <div class="form-group">
+                                            <label>Combustible</label>
+                                            <select name="fuelType" [(ngModel)]="vehicle.fuelType" class="form-control">
+                                                <option [ngValue]="null" disabled>Seleccione combustible</option>
+                                                <option *ngFor="let fuel of fuelTypes" [ngValue]="fuel">
+                                                    {{ fuel.name }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                
+                                        <!-- Cilindros -->
+                                        <div class="form-group">
+                                            <label>Cilindros</label>
+                                            <input name="cylinder" [(ngModel)]="vehicle.cylinder" class="form-control" placeholder="Ej: 4">
+                                        </div>
+                                    </div>
+                                
+                                    <!-- Características Físicas -->
+                                    <div class="form-group-4">
+                                        <!-- Color -->
+                                        <div class="form-group">
+                                            <label>Color</label>
+                                            <input name="color" [(ngModel)]="vehicle.color" class="form-control" placeholder="Ej: Rojo">
+                                        </div>
+                                
+                                        <!-- Puertas -->
+                                        <div class="form-group">
+                                            <label>Puertas</label>
+                                            <select name="doors" [(ngModel)]="vehicle.doors" class="form-control">
+                                                <option [ngValue]="null" disabled>Seleccione</option>
+                                                <option *ngFor="let door of [2,3,4,5]" [ngValue]="door">{{ door }}</option>
+                                            </select>
+                                        </div>
+                                
+                                        <!-- Asientos -->
+                                        <div class="form-group">
+                                            <label>Asientos</label>
+                                            <select name="seats" [(ngModel)]="vehicle.seats" class="form-control">
+                                                <option [ngValue]="null" disabled>Seleccione</option>
+                                                <option *ngFor="let seat of [2,4,5,7,8]" [ngValue]="seat">{{ seat }}</option>
+                                            </select>
+                                        </div>
+                                
+                                        <!-- Tipo de Tracción -->
+                                        <div class="form-group">
+                                            <label>Tracción</label>
+                                            <select name="tractionType" [(ngModel)]="vehicle.tractionType" class="form-control">
+                                                <option [ngValue]="null" disabled>Seleccione tracción</option>
+                                                <option *ngFor="let traction of tractionTypes" [ngValue]="traction">
+                                                    {{ traction.name }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                
+                                    <!-- Descripción -->
+                                    <div class="form-group mb-0">
+                                        <label>Descripción</label>
+                                        <textarea name="description" [(ngModel)]="vehicle.description" placeholder="Describa las características del vehículo"></textarea>
+                                    </div>
+                                
+                                    <!-- Precio -->
+                                    <div class="form-group">
+                                        <label>Precio (USD)</label>
+                                        <input name="price" [(ngModel)]="vehicle.price" class="form-control" placeholder="Ej: 25000">
+                                    </div>
+                                
+                                    <!-- Botones de envío -->
+                                    <div class="group-button-submit">
+                                        <button type="submit" class="pre-btn" >Guardar Vehículo</button>
+                                        <button type="button" class="second-btn">Vista Previa</button>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
