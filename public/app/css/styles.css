@@ -9820,6 +9820,10 @@
   width: calc(25% - 30px);
   margin-left: 30px;
 }
+.tfcl-add-listing .form-group-3 > * {
+  width: calc(33.33333333% - 30px);
+  margin-left: 30px;
+}
 
 .tfcl-add-listing .form-group-2 {
   display: flex;

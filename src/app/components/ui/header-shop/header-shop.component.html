@@ -1,9 +1,9 @@
 <header class="main-header">
     <!-- Header Lower -->
-    <div class="header-lower">
+    <div class="header-lower" [hidden]="globalService.activeRoute === 'dashboard'">
         <div class="container2">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" >
                     <div class="inner-container flex justify-space align-center">
                         <!-- Logo Box -->
                         <div class="logo-box flex">
@@ -13,7 +13,7 @@
                         <div class="nav-outer flex align-center">
                             <!-- Main Menu -->
                             <nav class="main-menu show navbar-expand-md">
-                                <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                                <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent" >
                                     <ul class="navigation clearfix">
                                         <li><a (click)="globalService.setRoute('home')">Inicio</a></li>
                                         <li><a (click)="globalService.setRoute('')">Reparaciones</a></li>

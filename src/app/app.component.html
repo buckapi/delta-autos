@@ -1,6 +1,6 @@
 <div id="wrapper">
   <div id="pagee" class="clearfix">
-    <app-header-shop *ngIf="globalService.activeRoute !== 'dashboard'"></app-header-shop>
+    <app-header-shop ></app-header-shop>
     <!-- <app-header ></app-header> -->
       <app-slider *ngIf="globalService.activeRoute === 'home'"></app-slider>
       <app-filter *ngIf="globalService.activeRoute === 'home'"></app-filter>
@@ -23,7 +23,7 @@
         </svg>
       </div>
       <!-- /go top button -->
-      <app-footer></app-footer>
+      <app-footer ></app-footer>
 
   </div>
 </div>

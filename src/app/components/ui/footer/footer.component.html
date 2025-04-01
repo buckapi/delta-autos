@@ -1,9 +1,9 @@
 
       <!-- Footer -->
-      <footer id="footer" class="clearfix home">
-        <div class="container">
-            <div class="footer-top">
-                <div class="row">
+      <footer id="footer" class="clearfix home" >
+        <div class="container" >
+            <div class="footer-top" [hidden]="globalService.activeRoute === 'dashboard'">
+                <div class="row" >
                     <div class="col-lg-3 col-6">
                         <div class="box-footer-top flex-three">
                             <div class="icon">
@@ -133,7 +133,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-main">
+            <div class="footer-main" [hidden]="globalService.activeRoute === 'dashboard'">
                 <div class="row">
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="widget widget-menu footer-col-block">
