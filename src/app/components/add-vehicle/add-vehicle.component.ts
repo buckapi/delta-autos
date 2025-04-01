@@ -167,7 +167,7 @@ vehicleTypeSelected:boolean = false;
         icon: 'success',
         confirmButtonText: 'Aceptar'
       });
-
+      this.vehicleTypeSelected = false;
       this.vehicleForm.reset();
       this.selectedImages = [];
     } catch (error) {
