@@ -19,8 +19,9 @@
    " [hidden]="vehicleTypeSelected">
     <div class="vehicle-type-cards-container">
         <div class="vehicle-type-card" 
-             *ngFor="let type of vehicleTypes" 
+             *ngFor="let type of vehicleTypes"  
              (click)="onVehicleTypeChange(type)"
+             [hidden]="type.id === 'p3dknr5mjqszwvy'"
              (mouseenter)="hoverCard($event)"
              (mouseleave)="unhoverCard($event)">
             <div class="card-content">
@@ -88,126 +89,51 @@
                             <!-- <form (ngSubmit)="onSubmit()"> -->
                                 <form (ngSubmit)="onSubmit()">
                                   
-                                    <div class="form-group-2">  
-                                        <div class="form-group-2">
-                                            <div class="form-group ">
+                                    <div class="form-group">  
+                                        <div class="form-group-1">
+                                            <!-- <div class="form-group ">
                                                 <label>Nombre del Vehículo *</label>
                                                 <input name="name" [(ngModel)]="vehicle.name" required class="form-control" placeholder="Ej: Toyota Corolla Hybrid">
-                                            </div>
-                                            <div class="form-group ">
-                                                <label>Precio (USD)</label>
-                                                <input name="price" [(ngModel)]="vehicle.price" class="form-control" placeholder="Ej: 25000">
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label>Descripción</label>
-                                            <textarea name="description" [(ngModel)]="vehicle.description" placeholder="Describa las características del vehículo" class="form-control"></textarea>
-                                        </div>
-                                       
-                                    </div>
-                                    <div class="form-group-4">
-                                       
-                                
+                                            </div> -->
+
+
+
                                         <!-- Marca -->
                                         <div class="form-group">
                                             <label>Marca *</label>
                                             <input name="brand" [(ngModel)]="vehicle.brand" required class="form-control" placeholder="Ej: Toyota">
                                         </div>
                                         
-                                
-                                        <!-- Modelo -->
+
+                                            <div class="form-group ">
+                                                <label>Precio (USD)</label>
+                                                <input name="price" [(ngModel)]="vehicle.price" class="form-control" placeholder="Ej: 25000">
+                                            </div>
+                                               <!-- Año -->
                                         <div class="form-group">
                                             <label>Modelo *</label>
-                                            <input name="model" [(ngModel)]="vehicle.model" required class="form-control" placeholder="Ej: Corolla">
-                                        </div>
-                                
-                                        <!-- Año -->
-                                        <div class="form-group">
-                                            <label>Año *</label>
                                             <input name="year" [(ngModel)]="vehicle.year" required class="form-control" min="1990">
                                         </div>
+                                        </div>
+                                      
+                                       
                                     </div>
-                                
-                                    <!-- Especificaciones Técnicas -->
-                                    <div class="form-group-4">
-                                        <!-- Kilometraje -->
-                                        <div class="form-group">
-                                            <label>Kilometraje</label>
-                                            <input name="mileage" [(ngModel)]="vehicle.mileage" class="form-control" placeholder="Ej: 100000">
+                                    <div class="form-group">
+                                        <div class="form-group col-md-12">
+                                            <label>Descripción</label>
+                                            <textarea name="description" [(ngModel)]="vehicle.description" placeholder="Describa las características del vehículo" class="form-control"></textarea>
                                         </div>
                                 
-                                        <!-- Tipo de Transmisión -->
-                                        <div class="form-group" [hidden]="isMotorcycle()">
-                                            <label>Transmisión</label>
-                                            <div class="nice-select form-control" tabindex="0">
-                                                <span class="current">Selecciones tipo de transmisión</span>
-                                                <ul class="list">
-                                                    <li class="option" *ngFor="let type of transmissionTypes" (click)="onTransmissionTypeChange(type)">
-                                                        {{ type.name }}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
                                 
-                                        <!-- Tipo de Combustible -->
-                                        <div class="form-group" [hidden]="isMotorcycle()">
-                                            <label>Combustible</label>
-                                            <div class="nice-select form-control" tabindex="0">
-                                                <span class="current">Seleccione tipo de combustible</span>
-                                                <ul class="list">
-                                                    <li class="option" *ngFor="let type of fuelTypes" (click)="onFuelTypeChange(type)">
-                                                        {{ type.name }}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        <!-- Modelo -->
+                                        <!-- <div class="form-group">
+                                            <label>Modelo *</label>
+                                            <input name="model" [(ngModel)]="vehicle.model" required class="form-control" placeholder="Ej: Corolla">
+                                        </div> -->
                                 
-                                        <!-- Cilindros -->
-                                        <div class="form-group" [hidden]="isMotorcycle()">
-                                            <label>Cilindros</label>
-                                            <input name="cylinder" [(ngModel)]="vehicle.cylinder" class="form-control" placeholder="Ej: 4">
-                                        </div>
+                                     
                                     </div>
-                                
-                                    <!-- Características Físicas -->
-                                    <div class="form-group-4">
-                                        <!-- Color -->
-                                        <div class="form-group">
-                                            <label>Color</label>
-                                            <input name="color" [(ngModel)]="vehicle.color" class="form-control" placeholder="Ej: Rojo">
-                                        </div>
-                                
-                                        <!-- Puertas -->
-                                        <div class="form-group" [hidden]="isMotorcycle()">
-                                            <label>Puertas</label>
-                                            <select name="doors" [(ngModel)]="vehicle.doors" class="form-control">
-                                                <option [ngValue]="null" disabled>Seleccione</option>
-                                                <option *ngFor="let door of [2,3,4,5]" [ngValue]="door">{{ door }}</option>
-                                            </select>
-                                        </div>
-                                
-                                        <!-- Asientos -->
-                                        <div class="form-group" [hidden]="isMotorcycle()">
-                                            <label>Asientos</label>
-                                            <select name="seats" [(ngModel)]="vehicle.seats" class="form-control">
-                                                <option [ngValue]="null" disabled>Seleccione</option>
-                                                <option *ngFor="let seat of [2,4,5,7,8]" [ngValue]="seat">{{ seat }}</option>
-                                            </select>
-                                        </div>
-                                
-                                        <!-- Tipo de Tracción -->
-                                        <div class="form-group" [hidden]="isMotorcycle()">
-                                            <label>Tracción</label>
-                                            <select name="tractionType" [(ngModel)]="vehicle.tractionType" class="form-control">
-                                                <option [ngValue]="null" disabled>Seleccione tracción</option>
-                                                <option *ngFor="let traction of tractionTypes" [ngValue]="traction">
-                                                    {{ traction.name }}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                
+                               
                                    
                                 
                                
