@@ -6,14 +6,13 @@
                 <div class="flat-tabs">
                     <div class="box-tab style2 center">
                         <ul class="menu-tab tab-title flex justify-center">
-                            <li class="item-title style active">
-                                <span class="inner fs-16 fw-5 lh-20">Nuevos</span>
-                            </li>
-                            <li class="item-title style">
-                                <span class="inner fs-16 fw-5 lh-20">Usados</span>
-                            </li>
-                            <li class="item-title style">
-                                <span class="inner fs-16 fw-5 lh-20">Colisionados</span>
+                            <li [hidden]="type.id === 'p3dknr5mjqszwvy'" 
+                                class="item-title style" 
+                                [class.active]="isSelected(type.id)"
+                                style="cursor: pointer; height: 100% !important; width: 100% !important;"
+                                *ngFor="let type of vehicleTypes; let index = index"
+                                (click)="selectVehicleType(type.id)">
+                                <span class="inner fs-16 fw-5 lh-20">{{ type.name }}</span>
                             </li>
                         </ul>
                     </div>
@@ -24,89 +23,7 @@
                                     <div class="wd-find-select flex">
                                         <div class="inner-group">
                                             <div class="form-group-1">
-
-                                                <div class="group-select">
-                                                    <div class="nice-select" tabindex="0"><span
-                                                            class="current">Infinity</span>
-                                                        <ul class="list">
-                                                            <li data-value class="option selected">Infinity
-                                                            </li>
-                                                            <li data-value="Audi" class="option">Audi</li>
-                                                            <li data-value="BMW" class="option">BMW</li>
-                                                            <li data-value="Dongfeng" class="option">
-                                                                Dongfeng</li>
-                                                            <li data-value="Ford" class="option">Ford</li>
-                                                            <li data-value="Foton" class="option">Foton</li>
-                                                            <li data-value="Isuzu" class="option">Isuzu</li>
-                                                            <li data-value="Kia" class="option">Kia</li>
-                                                            <li data-value="Mercedes Benz" class="option">
-                                                                Mercedes Benz</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group-1">
-
-                                                <div class="group-select">
-                                                    <div class="nice-select" tabindex="0"><span
-                                                            class="current">Sedanx50</span>
-                                                        <ul class="list">
-                                                            <li data-value class="option selected">Sedanx50
-                                                            </li>
-                                                            <li data-value="A4" class="option">A4</li>
-                                                            <li data-value="Almera" class="option">Almera
-                                                            </li>
-                                                            <li data-value="Bellett" class="option">Bellett
-                                                            </li>
-                                                            <li data-value="C-Class" class="option">C-Class
-                                                            </li>
-                                                            <li data-value="Camry" class="option">Camry</li>
-                                                            <li data-value="Carnival" class="option">
-                                                                Carnival</li>
-                                                            <li data-value="Mondeo-Sport" class="option">
-                                                                Mondeo Sport</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group-1">
-
-                                                <div class="group-select">
-                                                    <div class="nice-select" tabindex="0"><span
-                                                            class="current">Puertas</span>
-                                                        <ul class="list">
-                                                            <li data-value class="option selected">Door</li>
-                                                            <li data-value="2" class="option">2</li>
-                                                            <li data-value="4" class="option ">4</li>
-                                                            <li data-value="6" class="option ">6</li>
-                                                            <li data-value="8" class="option">8</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group-1">
-
-                                                <div class="group-select">
-                                                    <div class="nice-select" tabindex="0"><span
-                                                            class="current">Sedan</span>
-                                                        <ul class="list">
-                                                            <li data-value class="option selected">Sedan
-                                                            </li>
-                                                            <li data-value="Convertible" class="option">
-                                                                Convertible</li>
-                                                            <li data-value="Coupe" class="option">Coupe</li>
-                                                            <li data-value="Crossover" class="option">
-                                                                Crossover</li>
-                                                            <li data-value="Hatchback" class="option">
-                                                                Hatchback</li>
-                                                            <li data-value="Minivan" class="option">Minivan
-                                                            </li>
-                                                            <li data-value="Truck" class="option">Pickup
-                                                                Truck</li>
-                                                            <li data-value="SUV" class="option">SUV</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                                <input type="text" placeholder="Buscar">
                                             </div>
                                         </div>
                                         <div class="form-group-2 form-style">

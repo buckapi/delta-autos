@@ -4,6 +4,9 @@ import { VehicleService } from '../../services/vehicle.service';
 import { Vehicle } from '../../interfaces/vehicle.interface';
 import { GlobalService } from '../../services/global.service';
 import { CommonModule } from '@angular/common';
+import { WHATSAPP_NUMBER } from '../../constants/vehicle.constants';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-car-detail',
   imports: [CommonModule],
@@ -12,9 +15,13 @@ import { CommonModule } from '@angular/common';
 })
 export class CarDetailComponent {
   vehicle: Vehicle | null = null;
+  whatsappNumber = WHATSAPP_NUMBER;
+
+
   constructor(
     public globalService: GlobalService,
     public vehicleService: VehicleService,
+    private sanitizer: DomSanitizer,
     public scriptLoader: ScriptLoaderService) {   
     this.loadScripts();
   }
@@ -22,7 +29,27 @@ export class CarDetailComponent {
   ngOnInit(): void {
     this.loadScripts();
   }
+ 
+  getwhatsappUrl(): SafeUrl {
+    if (!this.vehicle) return '';
+    const message = this.getWhatsAppMessage();
+    const url = `https://wa.me/${this.whatsappNumber}?text=${message}`;
+    console.log("whatsapp url", url);
 
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+}
+
+  getWhatsAppMessage(): string {
+    if (!this.vehicle) return '';
+    const message = `¡Hola! Me interesa el vehículo:
+Nombre: ${this.vehicle.name || 'Sin especificar'}
+Patente: ${this.vehicle.patent || 'Sin especificar'}
+Año: ${this.vehicle.year || 'Sin especificar'}
+Precio: $${this.vehicle.price?.toLocaleString() || 'Sin especificar'}
+¿Podrías darme más información sobre este vehículo?
+Gracias!`;
+    return encodeURIComponent(message);
+  }
   loadScripts() {
     const scripts = [
       'app/js/jquery.min.js',

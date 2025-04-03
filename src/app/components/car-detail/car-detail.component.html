@@ -308,12 +308,7 @@
                 <div class="listing-sidebar">
                     <div class="widget-listing mb-30">
                         <div class="prolile-info flex-three mb-30">
-                            <div class="image">
-                                <img class="lazyload" data-src="assets/images/author/avt1.jpg"
-                                    src="assets/images/author/avt1.jpg" alt="image">
-                            </div>
                             <div class="content">
-                                <h4>Car Empire</h4>
                                 <div class="verified flex-three">
                                     <div class="icon">
                                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none"
@@ -327,27 +322,17 @@
                                     <span class="fs-12 fw-6 lh-16">Verified dealer</span>
                                 </div>
                             </div>
-
-
                         </div>
-                   
                         <div class="profile-contact">
                             <h6>Contact dealer</h6>
                             <div class="btn-contact flex-two">
-                                <a href="listing-detail-v5.html#" class="btn-pf bg-orange">
-                                    <i class="icon-autodeal-phone2"></i>
-                                    <span class="fs-16 fw-5 lh-20 font text-color-1">Call to seller</span>
-                                </a>
-                                <a href="listing-detail-v5.html#" class="btn-pf bg-green">
+                                <a [href]="globalService.getWhatsappUrl()" target="_blank" class="btn-pf bg-green">
                                     <i class="icon-autodeal-chat"></i>
-                                    <span class="fs-16 fw-5 lh-20 font text-color-1">Chat</span>
+                                    <span class="fs-16 fw-5 lh-20 font text-color-1">Whatsapp</span>
                                 </a>
                             </div>
-
-
                         </div>
                     </div>
-                
                 </div>
             </div>
         </div>

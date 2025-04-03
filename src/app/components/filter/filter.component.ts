@@ -1,19 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { ScriptLoaderService } from '../../services/loader.service';
+import { VEHICLE_TYPES } from '../../constants/vehicle.constants';
+import { CommonModule } from '@angular/common';
+import { KeyValue } from '@angular/common';
+import { VehicleService } from '../../services/vehicle.service';
+import { VehicleType } from '../../types/vehicle-types.interface';
+import { GlobalService } from '../../services/global.service';
 
 @Component({
   selector: 'app-filter',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.css'
 })
+
 export class FilterComponent implements OnInit {
-  constructor(public scriptLoader: ScriptLoaderService) { 
-   this.loadScripts();
+  vehicleTypes = Object.values(VEHICLE_TYPES);
+  selectedType: string = VEHICLE_TYPES.ORIGINAL.id;
+
+  constructor(
+    public vehicleService: VehicleService,
+    public scriptLoader: ScriptLoaderService,
+    private globalService: GlobalService
+  ) { 
+    this.loadScripts();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loadScripts();
+    this.selectedType = this.globalService.typeIdSelected;
+  }
+
+  selectVehicleType(typeId: string) {
+    this.selectedType = typeId;
+    this.globalService.typeIdSelected = typeId;
+  }
+
+  isSelected(typeId: string): boolean {
+    return this.selectedType === typeId;
   }
   loadScripts() {
     const scripts = [
@@ -39,6 +63,9 @@ export class FilterComponent implements OnInit {
       .catch(error => {
         console.error(error);
       });
+  }
+  getVehicleTypes(): VehicleType[] {
+    return Object.values(VEHICLE_TYPES); // Return the values from VEHICLE_TYPES
   }
 
 }
