@@ -1,17 +1,22 @@
 import { Component } from '@angular/core';
 import { ScriptLoaderService } from '../../services/loader.service';
-
+import { VehicleService } from '../../services/vehicle.service';
+import { Vehicle } from '../../interfaces/vehicle.interface';
+import { GlobalService } from '../../services/global.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-car-detail',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './car-detail.component.html',
   styleUrl: './car-detail.component.css'
 })
 export class CarDetailComponent {
-
-  constructor(public scriptLoader: ScriptLoaderService) {   
+  vehicle: Vehicle | null = null;
+  constructor(
+    public globalService: GlobalService,
+    public vehicleService: VehicleService,
+    public scriptLoader: ScriptLoaderService) {   
     this.loadScripts();
-
   }
 
   ngOnInit(): void {

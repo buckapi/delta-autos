@@ -34,7 +34,7 @@
                                     <div class="image-group relative">
                                       <div class="top flex-two">
                                         <ul class="d-flex gap-8">
-                                          <li class="flag-tag success">Características</li>
+                                          <!-- <li class="flag-tag success">Características</li> -->
                                           <li class="flag-tag style-1">
                                             <div class="icon">
                                               <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,7 +63,10 @@
                                       <h5 class="link-style-1">
                                         <a (click)="globalService.setRoute('car-detail', { id: vehicle.id })">{{ vehicle.name }}</a>
                                       </h5>
-                                      <div class="icon-box flex flex-wrap">
+                                      <h5 class="link-style-1">
+                                        <a (click)="globalService.setRoute('car-detail')">{{vehicle.description}}</a>
+                                    </h5>
+                                      <!-- <div class="icon-box flex flex-wrap">
                                         <div class="icons flex-three">
                                           <i class="icon-autodeal-km1"></i>
                                           <span>{{ vehicle.mileage }}</span>
@@ -76,7 +79,7 @@
                                           <i class="icon-autodeal-automatic"></i>
                                           <span>{{ vehicle.transmissionType }}</span>
                                         </div>
-                                      </div>
+                                      </div> -->
                                       <div class="money fs-20 fw-5 lh-25 text-color-3">${{ vehicle.price }}</div>
                                       <div class="days-box flex justify-space align-center">
                                         <div class="img-author">
@@ -85,6 +88,7 @@
                                         </div>
                                         <a (click)="globalService.setRoute('car-detail', { id: vehicle.id })" class="view-car">Ver más</a>
                                       </div>
+                                      
                                     </div>
                                   </div>
                                

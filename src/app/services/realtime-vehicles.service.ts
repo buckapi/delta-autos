@@ -21,7 +21,9 @@ export class RealtimeVehiclesService implements OnDestroy {
     this.pb = new PocketBase('https://db.buckapi.lat:8045');
     this.subscribeToVehicles();
   }
-
+  getVehicleById(id: string): Vehicle | null {
+    return this.VehiclesSubject.value.find((vehicle) => vehicle.id === id) || null;
+  }
   private async subscribeToVehicles() {
     try {
       // (Optional) Authentication
