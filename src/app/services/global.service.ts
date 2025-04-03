@@ -6,10 +6,18 @@ import { Injectable } from '@angular/core';
 export class GlobalService {
 activeRoute:string ="dashboard" ;
 dashboardOption:string="";
-setRoute(route:string){
+params: any = {};
+setRoute(route:string, params?: any){
         this.activeRoute = route;
+        this.params = params || {};
 }
 setDashboardOption(option:string){
         this.dashboardOption = option;
+    }
+    getRoute(){
+      return this.activeRoute;
+    }
+    getParams(){
+      return this.params;
     }
 }
