@@ -18,11 +18,14 @@ import { BlogComponent } from './components/blog/blog.component';
 import { BlogGridComponent } from './components/blog-grid/blog-grid.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthService } from './services/auth.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
+    FormsModule, 
     CarDetailComponent,
     ContactComponent,
     DashboardComponent,
@@ -44,11 +47,46 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 })
 export class AppComponent implements OnInit {
   title = 'delta-autos';
-  constructor(private scriptLoader: ScriptLoaderService, public globalService: GlobalService) {}
+  username: string = '';
+  password: string = '';
+  loading: boolean = false;
+  errorMessage: string | null = null;
+  constructor(
+    private scriptLoader: ScriptLoaderService,
+    public authService: AuthService,
+
+     public globalService: GlobalService) {}
   ngOnInit() {
     this.loadScripts();
   }
+  async login(event: Event) {
+    event.preventDefault();
+    this.errorMessage = null;
 
+    if (!this.username || !this.password) {
+      this.errorMessage = 'Por favor, completa todos los campos';
+      return;
+    }
+
+    this.loading = true;
+
+    try {
+      const result = await this.authService.login(this.username, this.password);
+      
+      if (result.success) {
+        this.globalService.setRoute('dashboard');
+        this.globalService.setDashboardOption('by-budget');
+      } else {
+        this.errorMessage = result.error || 'Error al iniciar sesión';
+      }
+    } catch (error) {
+      this.errorMessage = 'Error en la conexión con el servidor';
+      console.error('Error en login:', error);
+    } finally {
+      this.loading = false;
+    }
+  }
+  
   loadScripts() {
     const scripts = [
       'app/js/jquery.min.js',
@@ -73,5 +111,8 @@ export class AppComponent implements OnInit {
       .catch(error => {
         console.error(error);
       });
+  }
+  logout() {
+    this.authService.logout();
   }
 }

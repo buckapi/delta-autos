@@ -4,9 +4,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="heading-section flex align-center justify-space flex-wrap gap-20">
-                    <h2 class="wow fadeInUpSmall" data-wow-delay="0.2s" data-wow-duration="1000ms">Carros Usados por presupuesto</h2>
-                    <a href="listing-grid.html" class="tf-btn-arrow wow fadeInUpSmall" data-wow-delay="0.2s"
-                        data-wow-duration="1000ms">Ver todos<i class="icon-autodeal-btn-right"></i></a>
+                    <h2 class="wow fadeInUpSmall" data-wow-delay="0.2s" data-wow-duration="1000ms">Mostrando Todos los vehiculos disponibles</h2>
+                    <a 
+                    (click)="globalService.setRoute('listing-grid')"
+                     class="tf-btn-arrow wow fadeInUpSmall" 
+                     data-wow-delay="0.2s"
+                     [hidden]="globalService.dashboardOption === 'by-budget'"
+                        data-wow-duration="1000ms"
+                        >Ver todos<i class="icon-autodeal-btn-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-12">

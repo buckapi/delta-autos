@@ -3,10 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { VEHICLE_TYPES, VehicleType } from '../../constants/vehicle.constants'; // Adjust the import path as necessary
 import { GlobalService } from '../../services/global.service';
 import { AddVehicleComponent } from '../add-vehicle/add-vehicle.component';
+import { ByBudgetComponent } from '../by-budget/by-budget.component';
 @Component({
   selector: 'app-dashboard',
   imports: [CommonModule,
-    AddVehicleComponent
+    AddVehicleComponent,
+    ByBudgetComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'

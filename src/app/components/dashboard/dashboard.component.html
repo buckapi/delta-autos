@@ -324,6 +324,7 @@
 
 <div id="themesflat-content">
     <!-- <div class="dashboard-toggle">Show DashBoard</div> -->
+     <app-by-budget *ngIf="globalService.dashboardOption=='by-budget'"></app-by-budget>
     <app-add-vehicle *ngIf="globalService.dashboardOption=='add-vehicle'"></app-add-vehicle>
 </div>
 <!-- </div> -->

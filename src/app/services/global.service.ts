@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GlobalService {
-activeRoute:string ="dashboard" ;
+activeRoute:string ="home" ;
 dashboardOption:string="";
 params: any = {};
 setRoute(route:string, params?: any){
