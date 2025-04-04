@@ -211,7 +211,7 @@
                                                         </div> -->
                                                         <div class="money fs-20 fw-5 lh-25 text-color-3">
                                                             {{vehicle.price}}</div>
-                                                        <a (click)="global.setRoute('car-detail')"
+                                                        <a  (click)="global.setRoute('car-detail', { id: vehicle.id })" 
                                                             class="view-car">Ver detalles<i
                                                                 class="icon-autodeal-btn-right"></i></a>
                                                     </div>

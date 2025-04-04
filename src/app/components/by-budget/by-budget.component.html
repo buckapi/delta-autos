@@ -60,10 +60,10 @@
                                     </h5>
                                       <div class="money fs-20 fw-5 lh-25 text-color-3">${{ vehicle.price }}</div>
                                       <div class="days-box flex justify-space align-center">
-                                        <div class="img-author">
+                                        <!-- <div class="img-author">
                                           <img class="" src="{{ vehicle.files?.[0] }}" loading="lazy" alt="image" />
                                           <span class="font text-color-2 fw-5">{{ vehicle.brand }} {{ vehicle.model }}</span>
-                                        </div>
+                                        </div> -->
                                         <a (click)="globalService.setRoute('car-detail', { id: vehicle.id })" class="view-car">Ver más</a>
                                       </div>
                                       
