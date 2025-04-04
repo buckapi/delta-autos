@@ -1,18 +1,34 @@
 import { Component } from '@angular/core';
 import { ScriptLoaderService } from '../../services/loader.service';
 import { GlobalService } from '../../services/global.service';
-
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RealtimeVehiclesService } from '../../services/realtime-vehicles.service';
+import { Vehicle } from '../../interfaces/vehicle.interface';
 @Component({
   selector: 'app-shop',
-  imports: [],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css'
 })
 export class ShopComponent {
   constructor(public scriptLoader: ScriptLoaderService,
-    public global:GlobalService
+    public global:GlobalService,
+    private realtimeVehiclesService: RealtimeVehiclesService
   ) { }
+  vehicles: Vehicle[] = [];
+  loading = true;
   ngOnInit(): void {
+    this.realtimeVehiclesService.Vehicles$.subscribe({
+      next: (vehicles) => {
+        this.vehicles = vehicles;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error al cargar vehículos:', error);
+        this.loading = false;
+      }
+    });
     this.loadScripts();
   }
   loadScripts() {
