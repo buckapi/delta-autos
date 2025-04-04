@@ -27,6 +27,7 @@ setRoute(route:string, params?: any){
         this.params = params || {};
         if(params?.id && route === 'car-detail'){
           this.dashboardOption = 'car-detail';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
           this.vehicle=this.realtimeVehiclesService.getVehicleById(params.id);
           console.log(this.vehicle);
         }
