@@ -17,47 +17,65 @@ import { Swiper } from 'swiper';
       </div>
     </div>
   `,
-  styles: [`
-    .swiper-container {
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-    .swiper-wrapper {
-      height: 100%;
-    }
+styles: [`
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .swiper-wrapper {
+    height: 100%;
+  }
+  .swiper-slide {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .img-style {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/assets/images/sliderW.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Estilos para móvil */
+  @media (max-width: 768px) {
     .swiper-slide {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      aspect-ratio: 1; /* Esto hace que el slide sea cuadrado */
+      width: 100%;
     }
     .image-container {
-      position: relative;
       width: 100%;
       height: 100%;
+      aspect-ratio: 1; /* Esto hace que el contenedor sea cuadrado */
     }
     .img-style {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Esto asegura que la imagen cubra el espacio */
     }
-    .image-container::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('/assets/images/sliderW.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      opacity: 0.5; /* Ajusta la opacidad según prefieras */
-      pointer-events: none; /* Para que no interfiera con los clicks */
-      z-index: 1; /* Asegura que esté por encima de la imagen */
-    }
-  `]
+  }
+`]
 })
 export class VehicleSliderComponent implements OnInit, AfterViewInit {
   @Input() images: string[] = [];
