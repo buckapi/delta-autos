@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RealtimeVehiclesService } from '../../services/realtime-vehicles.service';
 import { Vehicle } from '../../interfaces/vehicle.interface';
+import { VEHICLE_TYPES } from '../../constants/vehicle.constants';
 @Component({
   selector: 'app-shop',
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
@@ -12,6 +13,8 @@ import { Vehicle } from '../../interfaces/vehicle.interface';
   styleUrl: './shop.component.css'
 })
 export class ShopComponent {
+  vehicleTypes = Object.values(VEHICLE_TYPES);
+  selectedType: string = VEHICLE_TYPES.ORIGINAL.id;
   constructor(public scriptLoader: ScriptLoaderService,
     public global:GlobalService,
     private realtimeVehiclesService: RealtimeVehiclesService
@@ -56,4 +59,16 @@ export class ShopComponent {
         console.error(error);
       });
   }
+
+
+  selectVehicleType(typeId: string) {
+    this.selectedType = typeId;
+    this.global.typeIdSelected = typeId;
+  }
+
+  isSelected(typeId: string): boolean {
+    return this.selectedType === typeId;
+  }
+
+  
 }

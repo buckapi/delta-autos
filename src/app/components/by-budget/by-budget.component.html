@@ -45,15 +45,8 @@
                                         <div class="year flag-tag">{{ vehicle.year }}</div>
                                       </div>
                                      
-                                      <div class="swiper-container">
-                                        <div class="swiper-wrapper">
-                                          <div class="swiper-slide" *ngFor="let image of vehicle.files">
-                                            <img class="img-style" [src]="image" loading="lazy" alt="image" />
-                                          </div>
-                                        </div>
-                                        <div class="swiper-button-next"></div>
-                                        <div class="swiper-button-prev"></div>
-                                      </div>
+                                    <app-vehicle-slider [images]="vehicle.files"></app-vehicle-slider>
+                                    
                                     </div>
                                     <div class="content">
                                       <div class="text-address">
