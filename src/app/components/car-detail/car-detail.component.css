@@ -1,0 +1,49 @@
+
+    .profile-contact {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+    }
+    .profile-contact h6 {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .btn-contact {
+      display: flex;
+      justify-content: center;
+    }
+    .btn-pf {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-pf i {
+      margin-right: 8px;
+    }
+    .btn-pf span {
+      white-space: nowrap;
+    }
+
+    /* Estilos para móvil */
+    @media (max-width: 768px) {
+      .profile-contact {
+        margin-top: 15px;
+        padding: 12px;
+      }
+      .btn-pf {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 15px;
+      }
+      .btn-pf i {
+        font-size: 18px;
+      }
+      .btn-pf span {
+        font-size: 14px;
+      }
+    }
+ 

@@ -24,7 +24,7 @@ constructor(
 }
 setRoute(route:string, params?: any){
         this.activeRoute = route;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.scrollTo({ top: 0, behavior: 'smooth' });
 
         this.params = params || {};
         if(params?.id && route === 'car-detail'){
