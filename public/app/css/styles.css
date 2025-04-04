@@ -5087,8 +5087,8 @@
   gap: 10px;
 }
 .profile-contact .btn-contact .btn-pf {
-  padding: 15px 26.5px;
-  border-radius: 14px;
+  padding: 10px;
+    border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
