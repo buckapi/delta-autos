@@ -6,9 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RealtimeVehiclesService } from '../../services/realtime-vehicles.service';
 import { Vehicle } from '../../interfaces/vehicle.interface';
 import { VEHICLE_TYPES } from '../../constants/vehicle.constants';
+import { VehicleSliderComponent } from '../vehicle-slider/vehicle-slider.component';
 @Component({
   selector: 'app-shop',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule,VehicleSliderComponent],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css'
 })

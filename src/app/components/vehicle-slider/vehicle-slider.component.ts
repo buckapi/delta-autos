@@ -27,12 +27,14 @@ styles: [`
     height: 100%;
   }
   .swiper-slide {
+    
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .image-container {
+    aspect-ratio: 1;
     position: relative;
     width: 100%;
     height: 100%;

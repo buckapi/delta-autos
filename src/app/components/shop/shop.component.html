@@ -131,7 +131,7 @@
                                         <div class="list-car-list-1 list-car-grid-1" >
                                             <div class="box-car-list style-2 hv-one" *ngFor="let vehicle of vehicles">
                                                 <div class="image-group relative ">
-                                                    <div class="top flex-two">
+                                                    <!-- <div class="top flex-two">
                                                         <ul class="d-flex gap-8">
                                                             <li class="flag-tag success">Destacado</li>
                                                             <li class="flag-tag style-1">
@@ -151,8 +151,8 @@
                                                             </li>
                                                         </ul>
                                                         <div class="year flag-tag">2024</div>
-                                                    </div>
-                                                    <ul class="change-heart flex">
+                                                    </div> -->
+                                                    <!-- <ul class="change-heart flex">
                                                         <li class="box-icon w-32">
                                                             <a data-bs-toggle="offcanvas"
                                                                 data-bs-target="#offcanvasBottom"
@@ -184,13 +184,8 @@
                                                                 </svg>
                                                             </a>
                                                         </li>
-                                                    </ul>
-                                                    <div class="img-style">
-                                                        <img class="lazyload"
-                                                            data-src="{{vehicle.files[0]}}"
-                                                            src="{{vehicle.files[0]}}"
-                                                            alt="image">
-                                                    </div>
+                                                    </ul> -->
+                                                    <app-vehicle-slider [images]="vehicle.files"></app-vehicle-slider>
                                                 </div>
                                                 <div class="content">
                                                     <div class="inner1">
@@ -200,7 +195,7 @@
                                                         <h5 class="link-style-1">
                                                             <a (click)="global.setRoute('car-detail')">{{vehicle.description}}</a>
                                                         </h5>
-                                                        <div class="icon-box flex flex-wrap">
+                                                        <!-- <div class="icon-box flex flex-wrap">
                                                             <div class="icons flex-three">
                                                                 <i class="icon-autodeal-km1"></i>
                                                                 <span>72,491 kms</span>
@@ -213,7 +208,7 @@
                                                                 <i class="icon-autodeal-automatic"></i>
                                                                 <span>Automatic</span>
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                         <div class="money fs-20 fw-5 lh-25 text-color-3">
                                                             {{vehicle.price}}</div>
                                                         <a (click)="global.setRoute('car-detail')"
