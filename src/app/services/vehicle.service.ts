@@ -32,4 +32,8 @@ getVehicleById(id: string){
       return vehicle;
     });
 }
+
+updateVehicle(id: string, data: Partial<Vehicle>): Promise<Vehicle> {
+  return this.pb.collection('vehicles').update(id, data);
+}
 }

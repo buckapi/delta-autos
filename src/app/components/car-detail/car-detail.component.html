@@ -49,10 +49,24 @@
                                     <div class="inner">
                                         <h3 class="title"> 
                                             <i class="fa fa-car text-color-3"></i>
-                                            
                                             <span style="font-weight: 900; padding: 10px;">Vehículo: </span>
                                             <br>
-                                            {{ globalService.vehicle?.brand }}</h3>
+                                            <span *ngIf="editingField !== 'brand'; else editBrand">
+                                                {{ vehicle?.brand || 'Sin especificar' }}
+                                           <button (click)="startEditing('brand', vehicle?.brand)" class="btn btn-sm btn-link">
+    <i class="fa fa-edit"></i>
+</button>
+                                            </span>
+                                            <ng-template #editBrand>
+                                                <input type="text" [(ngModel)]="tempValue" class="form-control">
+                                                <button (click)="saveEdit('brand')" class="btn btn-sm btn-success">
+                                                    <i class="fa fa-check"></i>
+                                                </button>
+                                                <button (click)="cancelEdit()" class="btn btn-sm btn-danger">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </ng-template>
+                                        </h3>
                                     </div>
                                 </div>
                                 <div class="heading-widget">
@@ -60,8 +74,26 @@
                                         <h3 class="title">
                                             <i class="fa fa-money-bill text-color-3"></i> 
                                             <span style="font-weight: 900; padding: 10px;">Precio: </span>
+                                           
                                             <br>
-                                            {{ globalService.vehicle?.price }}</h3>
+                                            {{ vehicle?.price }}
+                                            <button (click)="startEditing('price', vehicle?.price)" class="btn btn-sm btn-link">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                        </h3>
+                                            <span *ngIf="editingField !== 'price'; else editPrice">
+                                                <!-- {{ vehicle?.price || 'Sin especificar' }} -->
+                                         
+                                            </span>
+                                            <ng-template #editPrice>
+                                                <input type="number" [(ngModel)]="tempValue" class="form-control">
+                                                <button (click)="saveEdit('price')" class="btn btn-sm btn-success">
+                                                    <i class="fa fa-check"></i>
+                                                </button>
+                                                <button (click)="cancelEdit()" class="btn btn-sm btn-danger">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </ng-template>
                                     </div>
                                 </div>
                                 <div class="heading-widget">
@@ -70,7 +102,24 @@
                                             <i class="fa fa-list text-color-3"></i> 
                                             <span style="font-weight: 900; padding: 10px;">Descripción: </span>
                                             <br>
-                                            {{ globalService.vehicle?.description }}</h3>
+                                            {{ vehicle?.description }}
+                                            <button (click)="startEditing('description', vehicle?.description)" class="btn btn-sm btn-link">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                        </h3>
+                                            <span *ngIf="editingField !== 'description'; else editDescription">
+                                                <!-- {{ vehicle?.description || 'Sin especificar' }} -->
+                                           
+                                            </span>
+                                            <ng-template #editDescription>
+                                                <input type="text" [(ngModel)]="tempValue" class="form-control">
+                                                <button (click)="saveEdit('description')" class="btn btn-sm btn-success">
+                                                    <i class="fa fa-check"></i>
+                                                </button>
+                                                <button (click)="cancelEdit()" class="btn btn-sm btn-danger">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </ng-template>
                                     </div>
                                 </div>
                                 <div class="listing-line"></div>

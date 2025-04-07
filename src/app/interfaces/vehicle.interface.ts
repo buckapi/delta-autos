@@ -23,7 +23,8 @@ export interface Vehicle {
   tractionType?: TractionType;
 
   /* Tipos dinámicos (arrays desde BD) */
-  brand?: Brand[];
+  // brand?: Brand[];
+  brand?: string;
   model?: Model[];
   bodyType?: BodyType[];
 
