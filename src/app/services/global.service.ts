@@ -15,7 +15,7 @@ export class GlobalService {
   vehicleTypeSelected: boolean = false;
   typeIdSelected: string = VEHICLE_TYPES.ORIGINAL.id;
   whatsappNumber = WHATSAPP_NUMBER;
-  
+  isModalOpen=false;
 
 constructor(
   private sanitizer: DomSanitizer,

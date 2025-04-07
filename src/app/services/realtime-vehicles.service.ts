@@ -24,13 +24,23 @@ export class RealtimeVehiclesService implements OnDestroy {
   getVehicleById(id: string): Vehicle | null {
     return this.VehiclesSubject.value.find((vehicle) => vehicle.id === id) || null;
   }
+  // private async subscribeToVehicles() {
+  //   try {
+  //     await this.pb
+  //       .collection('users')
+  //       .authWithPassword('platform@buckapi.lat', 'cMKgSkrw9ifGhdv');
+
+  //     this.pb.collection('Vehicles').subscribe('*', (e) => {
+  //       this.handleRealtimeEvent(e);
+  //     });
+
+  //     this.updateVehiclesList();
+  //   } catch (error) {
+  //     console.error('Error during subscription:', error);
+  //   }
+  // }
   private async subscribeToVehicles() {
     try {
-      // (Optional) Authentication
-      await this.pb
-        .collection('users')
-        .authWithPassword('platform@buckapi.lat', 'cMKgSkrw9ifGhdv');
-
       // Subscribe to changes in any record of the 'Vehicles' collection
       this.pb.collection('Vehicles').subscribe('*', (e) => {
         this.handleRealtimeEvent(e);

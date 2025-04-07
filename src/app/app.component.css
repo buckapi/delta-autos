@@ -1,0 +1,8 @@
+body.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+  }
+  
+  .modal-backdrop {
+    display: none !important; /* Opcional: si no quieres el fondo oscuro */
+  }
