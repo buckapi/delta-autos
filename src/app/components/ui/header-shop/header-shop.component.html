@@ -10,9 +10,9 @@
                             <div class="logo"><a (click)="globalService.setRoute('home')"><img src="assets/images/logo/logo@2x.png"
                                         alt="" width="225" height="40"></a></div>
                         </div>
-                        <div class="nav-outer flex align-center">
+                        <div class="nav-outer flex align-center" [hidden]="authService.isLogged()">
                             <!-- Main Menu -->
-                            <nav class="main-menu show navbar-expand-md">
+                            <nav class="main-menu show navbar-expand-md" >
                                 <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent" >
                                     <ul class="navigation clearfix">
                                         <li><a (click)="globalService.setRoute('home')">Inicio</a></li>
@@ -34,13 +34,13 @@
                             </nav>
                             <!-- Main Menu End-->
                         </div>
-                        <div class="header-account flex align-center">
+                        <div class="header-account flex align-center" [hidden]="authService.isLogged()">
                             <div class="search-mobie">
                                 <a class="header-search-icon flex items-center justify-center">
                                     <i class="icon-autodeal-search search-icon fs-20"></i>
                                     <i class="icon-autodeal-plus search-icon fs-20"></i>
                                 </a>
-                                <div class="wd-find-select">
+                                <div class="wd-find-select " >
                                     <form method="post">
                                         <div class="form-group-1 search-form form-style2 relative">
                                             <i class="icon-autodeal-search"></i>
@@ -55,7 +55,7 @@
                             <!-- <a  class="header-favorite flex items-center justify-center">
                                 <i class="icon-autodeal-favorite fs-18"></i>
                             </a> -->
-                            <div class="register">
+                            <div class="register" [hidden]="authService.isLogged()">
                                 <ul class="flex align-center">
                                     <li>
                                         <i class="fas fa-user-shield"></i>

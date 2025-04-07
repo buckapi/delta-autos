@@ -10,6 +10,7 @@
   import html2canvas from 'html2canvas';
   import { FormsModule } from '@angular/forms'; 
   import Swal from 'sweetalert2';
+import { AuthService } from '../../services/auth.service';
 
   @Component({
     selector: 'app-car-detail',
@@ -25,6 +26,7 @@
     tempValue: string = '';
 
     constructor(
+      public authService: AuthService,
       public globalService: GlobalService,
       public vehicleService: VehicleService,
       private sanitizer: DomSanitizer,

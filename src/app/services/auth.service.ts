@@ -55,11 +55,14 @@ export class AuthService {
     }
   }
 
+  isLogged(): boolean {
+    return localStorage.getItem('pb_auth_token') !== null;
+  }
   logout() {
     this.pb.authStore.clear();
     localStorage.removeItem('pb_auth_token');
     localStorage.removeItem('user_id');
-    this.globalService.setRoute('login');
+    this.globalService.setRoute('home');
   }
 
   isAuthenticated(): boolean {

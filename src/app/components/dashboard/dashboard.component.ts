@@ -4,6 +4,7 @@ import { VEHICLE_TYPES, VehicleType } from '../../constants/vehicle.constants'; 
 import { GlobalService } from '../../services/global.service';
 import { AddVehicleComponent } from '../add-vehicle/add-vehicle.component';
 import { ByBudgetComponent } from '../by-budget/by-budget.component';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-dashboard',
   imports: [CommonModule,
@@ -15,7 +16,7 @@ import { ByBudgetComponent } from '../by-budget/by-budget.component';
 })
 export class DashboardComponent implements OnInit {
   vehicleTypes: VehicleType[] = []; // Initialize the vehicle types array
-  constructor(public globalService: GlobalService) { }
+  constructor(public globalService: GlobalService, public authService: AuthService) { }
 
   ngOnInit() {
     this.vehicleTypes = this.getVehicleTypes(); // Fetch the vehicle types

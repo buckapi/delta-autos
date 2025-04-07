@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../../../services/global.service';
 import { ScriptLoaderService } from '../../../services/loader.service';
+import { AuthService } from '../../../services/auth.service';
 @Component({
   selector: 'app-header-shop',
   imports: [],
@@ -10,7 +11,7 @@ import { ScriptLoaderService } from '../../../services/loader.service';
 export class HeaderShopComponent implements OnInit {
   constructor(
 public globalService:GlobalService,
-public scriptLoader: ScriptLoaderService
+public authService: AuthService,public scriptLoader: ScriptLoaderService
 
   ) { }
   ngOnInit() {
