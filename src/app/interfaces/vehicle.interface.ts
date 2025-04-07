@@ -2,6 +2,7 @@
 import { VehicleType, FuelType, TransmissionType, TractionType } from '../constants/vehicle.constants';
 import { Brand, Model, BodyType } from '../types/vehicle-types.interface';
 
+
 export interface Vehicle {
   id?: string;
   name?: string;
@@ -18,6 +19,8 @@ export interface Vehicle {
 
   /* Tipos fijos (usando constantes) */
   vehicleType?: VehicleType;
+  // vehicleType?: VehicleType;
+
   fuelType?: FuelType;
   transmissionType?: TransmissionType;
   tractionType?: TractionType;
