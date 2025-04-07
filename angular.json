@@ -13,13 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "budgets": [
-              {
-                "type": "initial",
-                "maximumWarning": "2mb",
-                "maximumError": "5mb"
-              }
-            ],
+            
             "allowedCommonJsDependencies": [
               "html2canvas",
               "sweetalert2",
@@ -52,8 +46,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -101,6 +95,7 @@
               }
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.css",
   "node_modules/@fortawesome/fontawesome-free/css/all.css",
   "src/styles.css"
             ],

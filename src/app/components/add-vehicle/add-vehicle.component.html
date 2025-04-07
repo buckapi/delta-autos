@@ -18,7 +18,7 @@
    display: flex;
    " [hidden]="vehicleTypeSelected">
     <div class="vehicle-type-cards-container">
-        <div class="vehicle-type-card" 
+        <!-- <div class="vehicle-type-card" 
              *ngFor="let type of vehicleTypes"  
              (click)="onVehicleTypeChange(type)"
              [hidden]="type.id === 'p3dknr5mjqszwvy'"
@@ -26,7 +26,15 @@
              (mouseleave)="unhoverCard($event)">
             <div class="card-content">
                 <h3>{{ type.name }}</h3>
-                <!-- Puedes agregar más detalles o iconos aquí si lo deseas -->
+            </div>
+        </div>      -->
+         <div class="vehicle-type-card" 
+             *ngFor="let type of vehicleTypes"  
+             (click)="onVehicleTypeChange(type)"
+             (mouseenter)="hoverCard($event)"
+             (mouseleave)="unhoverCard($event)">
+            <div class="card-content">
+                <h3>{{ type.name }}</h3>
             </div>
         </div>
     </div>

@@ -27,14 +27,22 @@
                                         </li>
                                     </ul> -->
                                     <ul class="enu-tab tab-title style1 flex">
-                                        <li [hidden]="type.id === 'p3dknr5mjqszwvy'" 
+                                        <li 
+                                        class="item-title style" 
+                                        [class.active]="isSelected(type.id)"
+                                        style="cursor: pointer; height: 100% !important; width: 100% !important;"
+                                        *ngFor="let type of vehicleTypes; let index = index"
+                                        (click)="selectVehicleType(type.id)">
+                                        <span class="inner fs-16 fw-5 lh-20">{{ type.name }}</span>
+                                    </li>
+                                        <!-- <li [hidden]="type.id === 'p3dknr5mjqszwvy'" 
                                             class="item-title style" 
                                             [class.active]="isSelected(type.id)"
                                             style="cursor: pointer; height: 100% !important; width: 100% !important;"
                                             *ngFor="let type of vehicleTypes; let index = index"
                                             (click)="selectVehicleType(type.id)">
                                             <span class="inner fs-16 fw-5 lh-20">{{ type.name }}</span>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                                     <div class="box-2 flex gap-8 flex-wrap">
