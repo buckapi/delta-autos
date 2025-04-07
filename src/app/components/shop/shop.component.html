@@ -106,7 +106,7 @@
                                         </a>
                                         <div class="wd-find-select flex gap-8">
                                             <div class="group-select">
-                                                <div class="nice-select" tabindex="0"><span
+                                                <!-- <div class="nice-select" tabindex="0"><span
                                                         class="current">Show: 50</span>
                                                     <ul class="list style">
                                                         <li data-value="10" class="option">Show: 10</li>
@@ -115,10 +115,10 @@
                                                             Show: 50</li>
                                                         <li data-value="100" class="option">Show: 100</li>
                                                     </ul>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="group-select">
-                                                <div class="nice-select" tabindex="0"><span
+                                                <!-- <div class="nice-select" tabindex="0"><span
                                                         class="current">Default order</span>
                                                     <ul class="list style">
                                                         <li data-value="" class="option selected focus">
@@ -129,7 +129,7 @@
                                                         <li data-value="high-to-low" class="option">High to
                                                             low</li>
                                                     </ul>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -137,7 +137,9 @@
                                 <div class="content-tab">
                                     <div class="content-inner tab-content" >
                                         <div class="list-car-list-1 list-car-grid-1" >
-                                            <div class="box-car-list style-2 hv-one" *ngFor="let vehicle of realtimeVehiclesService.vehicles$| async">
+                                            <div
+                                            [hidden]="global.vehicleTypeSelected && global.typeIdSelected !== vehicle.vehicleType?.id"
+                                            class="box-car-list style-2 hv-one" *ngFor="let vehicle of realtimeVehiclesService.vehicles$| async">
                                                 <div class="image-group relative ">
                                                     <div class="top flex-two">
                                   

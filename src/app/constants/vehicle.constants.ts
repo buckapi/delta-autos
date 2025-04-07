@@ -2,12 +2,16 @@
 
 /* Tipos de Vehículo */
 export const VEHICLE_TYPES = {
-    ORIGINAL: {
-      id: "a2sfnr9nmcqzhbp",
-      name: "Vehículos de línea original",
-    },
-    REPAIRED_SALVAGE: {
-      id: "k5mgnr7plbqxwvy",
+  TODOS: {
+    id: "a2sfnr9nmcqzhbt",
+    name: "Todos",
+  },  
+  ORIGINAL: {
+    id: "a2sfnr9nmcqzhbp",
+    name: "Vehículos de línea original",
+  },
+  REPAIRED_SALVAGE: {
+    id: "k5mgnr7plbqxwvy",
       name: "Vehículos de salvamento reparados",
     },
     UNREPAIRED_SALVAGE: {

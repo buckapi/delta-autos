@@ -18,7 +18,7 @@ export class GlobalService {
   dashboardOption: string = "";
   params: any = {};
   vehicleTypeSelected: boolean = false;
-  typeIdSelected: string = VEHICLE_TYPES.ORIGINAL.id;
+  typeIdSelected: string = VEHICLE_TYPES.TODOS.id;
   whatsappNumber = WHATSAPP_NUMBER;
   isModalOpen=false;
 

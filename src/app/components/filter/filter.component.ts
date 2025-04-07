@@ -32,8 +32,12 @@ export class FilterComponent implements OnInit {
   }
 
   selectVehicleType(typeId: string) {
+    if(typeId === VEHICLE_TYPES.TODOS.id) {
+      this.globalService.vehicleTypeSelected = false;
+    } else {
+      this.globalService.vehicleTypeSelected = true;
+    }
     this.selectedType = typeId;
-    this.globalService.vehicleTypeSelected = true;
     this.globalService.typeIdSelected = typeId;
   }
 

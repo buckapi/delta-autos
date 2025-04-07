@@ -50,9 +50,12 @@ export class ShopComponent {
         console.error(error);
       });
   }
-
-
   selectVehicleType(typeId: string) {
+    if(typeId === VEHICLE_TYPES.TODOS.id) {
+      this.global.vehicleTypeSelected = false;
+    } else {
+      this.global.vehicleTypeSelected = true;
+    }
     this.selectedType = typeId;
     this.global.typeIdSelected = typeId;
   }
