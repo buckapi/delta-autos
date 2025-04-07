@@ -15,18 +15,15 @@
 
 <section class="tf-section3 listing-detail style-2" id="pdf-content">
     <div class="container-fluid">
-        <div class="swiper carousel-9 slider home mb-40">
+        <div class="swiper carousel-9 slider home mb-40" *ngIf="globalService.vehicle">
             <div class="swiper-wrapper">
-               
-                <div class="swiper-slide" *ngFor="let image of globalService.vehicle?.files" >
+                <div class="swiper-slide" *ngFor="let image of globalService.vehicle.files">
                     <div class="image-list-details">
-                        <a class="image" href="{{image}}"  data-fancybox="gallery" >
-                            <img class="lazyload" data-src="{{image}}"
-                                src="{{image}}" alt="image">
+                        <a class="image" href="{{image}}" data-fancybox="gallery">
+                            <img class="lazyload" data-src="{{image}}" src="{{image}}" alt="image">
                         </a>
                     </div>
                 </div>
-          
             </div>
             <div class="swiper-pagination3"></div>
         </div>

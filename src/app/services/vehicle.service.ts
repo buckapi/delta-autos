@@ -27,5 +27,9 @@ export class VehicleService {
   addVehicle(data: Vehicle): Promise<Vehicle> {
     return this.pb.collection('vehicles').create(data);
 }
-
+getVehicleById(id: string){
+    return this.pb.collection('vehicles').getOne(id).then(vehicle => {
+      return vehicle;
+    });
+}
 }

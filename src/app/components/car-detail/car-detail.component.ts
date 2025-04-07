@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ScriptLoaderService } from '../../services/loader.service';
 import { VehicleService } from '../../services/vehicle.service';
 import { Vehicle } from '../../interfaces/vehicle.interface';
@@ -15,6 +15,7 @@ import html2canvas from 'html2canvas';
   styleUrl: './car-detail.component.css'
 })
 export class CarDetailComponent {
+  
   vehicle: Vehicle | null = null;
   whatsappNumber = WHATSAPP_NUMBER;
 
@@ -25,11 +26,29 @@ export class CarDetailComponent {
     private sanitizer: DomSanitizer,
     public scriptLoader: ScriptLoaderService) {   
     this.loadScripts();
+    this.vehicleService.getVehicleById(this.globalService.params.id).then(vehicle => {
+      this.vehicle = vehicle; 
+    });
   }
 
+  // ngOnInit(): void {
+  //   this.loadScripts();
+  // }
   ngOnInit(): void {
-    this.loadScripts();
+    this.vehicleService.getVehicleById(this.globalService.params.id).then(vehicle => {
+      this.vehicle = vehicle;
+      // Esperamos 1 segundo después de obtener los datos
+      setTimeout(() => {
+        // Aquí puedes inicializar el carrusel si lo necesitas
+        // Por ejemplo:
+        // const swiper = new Swiper('.swiper', {
+        //   // Configuración del carrusel
+        // });
+        this.loadScripts();
+      }, 1000);
+    });
   }
+  
  
 
   loadScripts() {

@@ -11,7 +11,7 @@ import { Vehicle } from '../interfaces/vehicle.interface';
 })
 export class RealtimeVehiclesService implements OnDestroy {
   private pb: PocketBase;
-  private VehiclesSubject = new BehaviorSubject<Vehicle[]>([]);
+  public VehiclesSubject = new BehaviorSubject<Vehicle[]>([]);
 
   // Observable for components to subscribe to
   public Vehicles$: Observable<Vehicle[]> =
