@@ -52,7 +52,7 @@
                                         <a (click)="globalService.setRoute('car-detail', { id: vehicle.id })">{{vehicle.description}}
 
 <!-- T <p class="text-color-3 font">{{ globalService.getVehicleType(vehicle.vehicleType?.id ?? '')?.id }}</p> -->
-{{ (vehicle.vehicleType?.id && globalService.getVehicleType(vehicle.vehicleType?.id))?.name || 'Tipo no especificado' }}
+<!-- {{ (vehicle.vehicleType?.id && globalService.getVehicleType(vehicle.vehicleType?.id))?.name || 'Tipo no especificado' }} -->
                                         </a>
                                     </h5>
                                       <div class="money fs-20 fw-5 lh-25 text-color-3">
