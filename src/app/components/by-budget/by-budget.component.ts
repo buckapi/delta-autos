@@ -13,7 +13,7 @@ import { VehicleSliderComponent } from '../vehicle-slider/vehicle-slider.compone
   templateUrl: './by-budget.component.html',
   styleUrl: './by-budget.component.css'
 })
-export class ByBudgetComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ByBudgetComponent implements  OnDestroy, AfterViewInit {
   vehicles: Vehicle[] = [];
   loading = true;
   @ViewChild('swiperContainer', { static: false, read: ElementRef }) swiperContainer!: ElementRef;
@@ -21,9 +21,10 @@ export class ByBudgetComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     public scriptLoader: ScriptLoaderService,
     public globalService: GlobalService,
-    private realtimeVehiclesService: RealtimeVehiclesService
+    public realtimeVehiclesService: RealtimeVehiclesService
   ) {
     this.loadScripts();
+    
    }
    initializeSwiper() {
     if (!this.swiperContainer || !this.swiperContainer.nativeElement) {
@@ -42,18 +43,7 @@ export class ByBudgetComponent implements OnInit, OnDestroy, AfterViewInit {
     console.log('Swiper initialized successfully');
   }
   
-  ngOnInit() {
-    this.realtimeVehiclesService.Vehicles$.subscribe({
-      next: (vehicles) => {
-        this.vehicles = vehicles;
-        this.loading = false;
-      },
-      error: (error) => {
-        console.error('Error al cargar vehículos:', error);
-        this.loading = false;
-      }
-    });
-  }
+
 
   ngAfterViewInit() {
     setTimeout(() => {

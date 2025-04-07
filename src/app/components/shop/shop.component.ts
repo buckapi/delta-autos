@@ -23,17 +23,7 @@ export class ShopComponent {
   vehicles: Vehicle[] = [];
   loading = true;
   ngOnInit(): void {
-    this.realtimeVehiclesService.Vehicles$.subscribe({
-      next: (vehicles) => {
-        this.vehicles = vehicles;
-        this.loading = false;
-      },
-      error: (error) => {
-        console.error('Error al cargar vehículos:', error);
-        this.loading = false;
-      }
-    });
-    this.loadScripts();
+
   }
   loadScripts() {
     const scripts = [

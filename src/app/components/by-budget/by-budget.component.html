@@ -29,7 +29,7 @@
                     <div class="content-tab">
                         <div class="content-inner tab-content">
                             <div class="list-car-grid-2">
-                                <div class="box-car-list style-2 hv-one" *ngFor="let vehicle of vehicles">
+                                <div class="box-car-list style-2 hv-one" *ngFor="let vehicle of realtimeVehiclesService.vehicles$| async">
                                     <div class="image-group relative">
                                       <div class="top flex-two">
                                         <ul class="d-flex gap-8">

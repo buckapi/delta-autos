@@ -36,4 +36,13 @@ getVehicleById(id: string){
 updateVehicle(id: string, data: Partial<Vehicle>): Promise<Vehicle> {
   return this.pb.collection('vehicles').update(id, data);
 }
+// En vehicle.service.ts
+deleteVehicle(id: string): Promise<boolean> {
+  return this.pb.collection('vehicles').delete(id)
+    .then(() => true)
+    .catch(error => {
+      console.error('Error deleting vehicle:', error);
+      return false;
+    });
+}
 }

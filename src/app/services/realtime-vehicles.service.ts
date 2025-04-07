@@ -1,88 +1,89 @@
-
 import { Injectable, OnDestroy } from '@angular/core';
 import PocketBase from 'pocketbase';
-import { BehaviorSubject, Observable } from 'rxjs';
-
+import { BehaviorSubject, Observable, from, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { Vehicle } from '../interfaces/vehicle.interface';
-
 
 @Injectable({
   providedIn: 'root',
 })
 export class RealtimeVehiclesService implements OnDestroy {
   private pb: PocketBase;
-  public VehiclesSubject = new BehaviorSubject<Vehicle[]>([]);
+  public vehiclesSubject = new BehaviorSubject<Vehicle[]>([]);
 
-  // Observable for components to subscribe to
-  public Vehicles$: Observable<Vehicle[]> =
-    this.VehiclesSubject.asObservable();
+  // Observable público para componentes
+  public vehicles$: Observable<Vehicle[]> = this.vehiclesSubject.asObservable();
 
   constructor() {
     this.pb = new PocketBase('https://db.buckapi.lat:8045');
     this.subscribeToVehicles();
   }
-  getVehicleById(id: string): Vehicle | null {
-    return this.VehiclesSubject.value.find((vehicle) => vehicle.id === id) || null;
-  }
-  // private async subscribeToVehicles() {
-  //   try {
-  //     await this.pb
-  //       .collection('users')
-  //       .authWithPassword('platform@buckapi.lat', 'cMKgSkrw9ifGhdv');
 
-  //     this.pb.collection('Vehicles').subscribe('*', (e) => {
-  //       this.handleRealtimeEvent(e);
-  //     });
-
-  //     this.updateVehiclesList();
-  //   } catch (error) {
-  //     console.error('Error during subscription:', error);
-  //   }
-  // }
   private async subscribeToVehicles() {
     try {
-      // Subscribe to changes in any record of the 'Vehicles' collection
-      this.pb.collection('Vehicles').subscribe('*', (e) => {
+      // (Opcional) Autenticación si es necesaria
+      // await this.pb.collection('users').authWithPassword('platform@buckapi.lat', 'tu_contraseña');
+
+      // Suscribirse a cambios en la colección 'vehicles'
+      this.pb.collection('vehicles').subscribe('*', (e) => {
         this.handleRealtimeEvent(e);
       });
 
-      // Initialize the list of Vehicles
+      // Cargar datos iniciales
       this.updateVehiclesList();
     } catch (error) {
-      console.error('Error during subscription:', error);
+      console.error('Error en la suscripción:', error);
     }
   }
 
-  private handleRealtimeEvent(event: any) {
-    console.log(`Event Action: ${event.action}`);
-    console.log(`Event Record:`, event.record);
-
-    // Update the list of Vehicles
+  private handleRealtimeEvent(event: { action: string; record: any }) {
+    console.log('Evento recibido:', event.action, event.record);
+    
+    // Actualizar la lista completa cuando hay cambios
     this.updateVehiclesList();
   }
 
   private async updateVehiclesList() {
     try {
-      // Get the updated list of Vehicles
-      const records = await this.pb.collection('Vehicles').getFullList<Vehicle>(200, {
-        sort: '-created', // Sort by creation date
+      const records = await this.pb.collection('vehicles').getFullList<Vehicle>(200, {
+        sort: '-created',
+        expand: 'brand' // Expandir relaciones si es necesario
       });
-
-      // Ensures each record conforms to pet structure
-      const Vehicles = records.map((record: any) => ({
-        ...record,
-        images: Array.isArray(record.images) ? record.images : [],
-        services: Array.isArray(record.services) ? record.services : [],
-      })) as Vehicle[];
-
-      this.VehiclesSubject.next(Vehicles);
+      
+      // Normalizar los datos antes de emitirlos
+      const normalizedVehicles = records.map(record => this.normalizeVehicle(record));
+      this.vehiclesSubject.next(normalizedVehicles);
     } catch (error) {
-      console.error('Error updating Vehicles list:', error);
+      console.error('Error actualizando lista de vehículos:', error);
     }
   }
 
+  private normalizeVehicle(vehicle: any): Vehicle {
+    return {
+      id: vehicle.id,
+      brand: vehicle.brand,
+      model: vehicle.model,
+      year: vehicle.year,
+      price: vehicle.price,
+      description: vehicle.description,
+      files: Array.isArray(vehicle.files) ? vehicle.files : [],
+    };
+  }
+
+  // Método para obtener un vehículo por ID como Observable
+  getVehicleById$(id: string): Observable<Vehicle | null> {
+    return this.vehicles$.pipe(
+      map(vehicles => vehicles.find(v => v.id === id) || null)
+    );
+  }
+
+  // Método para obtener un vehículo por ID directamente
+  getVehicleById(id: string): Vehicle | null {
+    return this.vehiclesSubject.value.find(v => v.id === id) || null;
+  }
+
   ngOnDestroy() {
-    // Unsubscribe when the service is destroyed
-    this.pb.collection('Vehicles').unsubscribe('*');
+    // Limpiar la suscripción al destruir el servicio
+    this.pb.collection('vehicles').unsubscribe('*');
   }
 }

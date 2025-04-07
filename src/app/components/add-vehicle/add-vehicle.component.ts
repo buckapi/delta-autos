@@ -83,7 +83,7 @@ vehicleTypeSelected:boolean = false;
       doors: [''],
       seats: [''],
       description: [''],
-      price: [''],
+      price: [0],
       cylinder: ['']
     });
   }

@@ -21,7 +21,7 @@ export class GlobalService {
 constructor(
   private sanitizer: DomSanitizer,
   public realtimeVehiclesService: RealtimeVehiclesService) {
-    this.realtimeVehiclesService.VehiclesSubject.subscribe(() => {  
+    this.realtimeVehiclesService.vehiclesSubject.subscribe(() => {  
       this.initializeState();
     });
     this.initializeState();

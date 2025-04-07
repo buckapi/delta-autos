@@ -9,6 +9,8 @@
   import jsPDF from 'jspdf';
   import html2canvas from 'html2canvas';
   import { FormsModule } from '@angular/forms'; 
+  import Swal from 'sweetalert2';
+
   @Component({
     selector: 'app-car-detail',
     imports: [CommonModule, FormsModule],
@@ -79,7 +81,49 @@
     this.tempValue = '';
   }
  
+  async deleteVehicle(): Promise<void> {
+    if (!this.vehicle?.id) return;
 
+    try {
+      const result = await Swal.fire({
+        title: '¿Estás seguro?',
+        text: '¿Estás seguro de que deseas eliminar este vehículo? Esta acción no se puede deshacer.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+      });
+
+      if (result.isConfirmed) {
+        const success = await this.vehicleService.deleteVehicle(this.vehicle.id);
+        
+        if (success) {
+          Swal.fire(
+            'Eliminado',
+            'El vehículo ha sido eliminado correctamente.',
+            'success'
+          ).then(() => {
+            this.globalService.setRoute('home');
+          });
+        } else {
+          Swal.fire(
+            'Error',
+            'No se pudo eliminar el vehículo.',
+            'error'
+          );
+        }
+      }
+    } catch (error) {
+      console.error('Error deleting vehicle:', error);
+      Swal.fire(
+        'Error',
+        'Ocurrió un error al eliminar el vehículo.',
+        'error'
+      );
+    }
+  }
     loadScripts() {
       const scripts = [
         'app/js/jquery.min.js',

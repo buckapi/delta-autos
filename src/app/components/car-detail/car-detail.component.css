@@ -5,6 +5,9 @@
       background-color: #f8f9fa;
       border-radius: 10px;
     }
+    .bg-red {
+      background-color: #dc3545;
+    }
     .profile-contact h6 {
       font-size: 14px;
       margin-bottom: 10px;
