@@ -129,8 +129,12 @@
                                 <div class="content-tab">
                                     <div class="content-inner tab-content" >
                                         <div class="list-car-list-1 list-car-grid-1" >
-                                            <div class="box-car-list style-2 hv-one" *ngFor="let vehicle of vehicles">
+                                            <div class="box-car-list style-2 hv-one" *ngFor="let vehicle of realtimeVehiclesService.vehicles$| async">
                                                 <div class="image-group relative ">
+                                                    <div class="top flex-two">
+                                  
+                                                        <div class="year flag-tag">{{ vehicle.year }}</div>
+                                                      </div>
                                                     <!-- <div class="top flex-two">
                                                         <ul class="d-flex gap-8">
                                                             <li class="flag-tag success">Destacado</li>
@@ -190,10 +194,10 @@
                                                 <div class="content">
                                                     <div class="inner1">
                                                         <div class="text-address">
-                                                            <p class="text-color-3 font">{{vehicle.name}}</p>
+                                                            <p class="text-color-3 font">{{vehicle.brand}}</p>
                                                         </div>
                                                         <h5 class="link-style-1">
-                                                            <a (click)="global.setRoute('car-detail')">{{vehicle.description}}</a>
+                                                            <a (click)="global.setRoute('car-detail', { id: vehicle.id })">{{vehicle.description}}</a>
                                                         </h5>
                                                         <!-- <div class="icon-box flex flex-wrap">
                                                             <div class="icons flex-three">
@@ -210,7 +214,10 @@
                                                             </div>
                                                         </div> -->
                                                         <div class="money fs-20 fw-5 lh-25 text-color-3">
-                                                            {{vehicle.price}}</div>
+                                                            <span style="color: #000">
+                                                                $ COP
+                                                            </span>
+                                                            {{ vehicle.price | number : '1.0-0' }}</div>
                                                         <a  (click)="global.setRoute('car-detail', { id: vehicle.id })" 
                                                             class="view-car">Ver detalles<i
                                                                 class="icon-autodeal-btn-right"></i></a>

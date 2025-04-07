@@ -24,7 +24,6 @@ export class ByBudgetComponent implements  OnDestroy, AfterViewInit {
     public realtimeVehiclesService: RealtimeVehiclesService
   ) {
     this.loadScripts();
-    
    }
    initializeSwiper() {
     if (!this.swiperContainer || !this.swiperContainer.nativeElement) {
@@ -46,32 +45,7 @@ export class ByBudgetComponent implements  OnDestroy, AfterViewInit {
 
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      // Intentar inicializar usando ViewChild
-      this.initializeSwiper();
-    
-      // Si no se inicializó con ViewChild, intentar con querySelector
-      if (!this.swiper) {
-        const vehicleContainers = document.querySelectorAll('.swiper-container');
-        vehicleContainers.forEach(container => {
-          const swiper = new Swiper(container as any, {
-            slidesPerView: 1,
-            spaceBetween: 0,
-   
-            loop: true,
-            autoplay: {
-              delay: 0,
-              disableOnInteraction: false,
-            },
-            pagination: {
-              el: container.querySelector('.swiper-pagination') as HTMLElement,
-              clickable: true,
-            }
-          });
-          console.log('Swiper inicializado:', swiper);
-        });
-      }
-    }, 1000); // Aumentado a 1000ms para dar más tiempo al DOM
+    this.initializeSwiper();
   }
   loadScripts() {
     const scripts = [

@@ -18,7 +18,7 @@ export class ShopComponent {
   selectedType: string = VEHICLE_TYPES.ORIGINAL.id;
   constructor(public scriptLoader: ScriptLoaderService,
     public global:GlobalService,
-    private realtimeVehiclesService: RealtimeVehiclesService
+    public realtimeVehiclesService: RealtimeVehiclesService
   ) { }
   vehicles: Vehicle[] = [];
   loading = true;
