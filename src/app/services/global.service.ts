@@ -53,7 +53,10 @@ private loadState() {
   setRoute(route: string, params?: any) {
     this.activeRoute = route;
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
+    if(route === 'dashboard') {
+      this.dashboardOption = 'by-budget';
+    }
+
     this.params = params || {};
     if (params?.id && route === 'car-detail') {
       this.dashboardOption = 'car-detail';

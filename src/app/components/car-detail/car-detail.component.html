@@ -47,25 +47,33 @@
                                 class="scrollspy-example" tabindex="0">
                                 <div class="heading-widget">
                                     <div class="inner">
-                                        <h3 class="title"> <i class="fa fa-car"></i> <span>Vehículo: </span>{{ globalService.vehicle?.name }}</h3>
+                                        <h3 class="title"> 
+                                            <i class="fa fa-car text-color-3"></i>
+                                            
+                                            <span style="font-weight: 900; padding: 10px;">Vehículo: </span>
+                                            <br>
+                                            {{ globalService.vehicle?.brand }}</h3>
+                                    </div>
+                                </div>
+                                <div class="heading-widget">
+                                    <div class="inner">
+                                        <h3 class="title">
+                                            <i class="fa fa-money-bill text-color-3"></i> 
+                                            <span style="font-weight: 900; padding: 10px;">Precio: </span>
+                                            <br>
+                                            {{ globalService.vehicle?.price }}</h3>
+                                    </div>
+                                </div>
+                                <div class="heading-widget">
+                                    <div class="inner">
+                                        <h3 class="title">
+                                            <i class="fa fa-list text-color-3"></i> 
+                                            <span style="font-weight: 900; padding: 10px;">Descripción: </span>
+                                            <br>
+                                            {{ globalService.vehicle?.description }}</h3>
                                     </div>
                                 </div>
                                 <div class="listing-line"></div>
-                                <div class="heading-widget">
-                                    <div class="inner">
-                                        <h3 class="title"><i class="fa fa-money-bill"></i> <span>Precio: </span> {{ globalService.vehicle?.price }}</h3>
-                                    </div>
-                                </div>
-                                <div class="listing-description mb-40">
-                                    <div class="tfcl-listing-header ">
-                                        <h3><i class="fa fa-list"></i> <span>Descripción</span></h3>
-                                    </div>
-                                    <div class="tfcl-listing-info mt-30">
-                                        {{ globalService.vehicle?.description }}
-                                    </div>
-                                    <div class="listing-line"></div>
-                                    
-                                </div>
                                 <div class="profile-contact d-block d-sm-none">
                                     <h6>Contactar por whatsapp</h6>
                                     <div class="btn-contact flex-two">
