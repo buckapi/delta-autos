@@ -29,7 +29,9 @@
                     <div class="content-tab">
                         <div class="content-inner tab-content">
                             <div class="list-car-grid-2">
-                                <div class="box-car-list style-2 hv-one" *ngFor="let vehicle of realtimeVehiclesService.vehicles$| async">
+                                <div
+                                [hidden]="globalService.vehicleTypeSelected && globalService.typeIdSelected !== vehicle.vehicleType?.id"
+                                 class="box-car-list style-2 hv-one" *ngFor="let vehicle of realtimeVehiclesService.vehicles$| async">
                                     <div class="image-group relative">
                                       <div class="top flex-two">
                                   
@@ -42,19 +44,19 @@
                                     
                                     </div>
                                     <div class="content">
-                                      <div class="text-address">
-                                        <p class="text-color-3 font">{{ vehicle.vehicleType }}</p>
-                                      </div>
+                                     
                                       <h5 class="link-style-1">
                                         <a (click)="globalService.setRoute('car-detail', { id: vehicle.id })">{{ vehicle.name }}</a>
                                       </h5>
                                       <h5 class="link-style-1">
-                                        <a (click)="globalService.setRoute('car-detail', { id: vehicle.id })">{{vehicle.description}}
+                                        <a (click)="globalService.setRoute('car-detail')">{{vehicle.description}}
 
-<!-- T <p class="text-color-3 font">{{ globalService.getVehicleType(vehicle.vehicleType?.id ?? '')?.id }}</p> -->
-<!-- {{ (vehicle.vehicleType?.id && globalService.getVehicleType(vehicle.vehicleType?.id))?.name || 'Tipo no especificado' }} -->
+
                                         </a>
+                                        
                                     </h5>
+                                    <p class="text-color-3 font">{{ globalService.getVehicleType(vehicle.vehicleType?.id ?? '')?.name }}</p>
+
                                       <div class="money fs-20 fw-5 lh-25 text-color-3">
                                         <span style="color: #000">
                                           $ COP

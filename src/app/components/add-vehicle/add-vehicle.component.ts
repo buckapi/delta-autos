@@ -141,7 +141,7 @@ vehicleTypeSelected:boolean = false;
 
       const vehicleData = {
         name: this.vehicle.name,
-        vehicleType: this.vehicle.vehicleType,
+        vehicleTypeSelected: this.vehicle.vehicleTypeSelected,
         brand: this.vehicle.brand,
         model: this.vehicle.model,
         bodyType: this.vehicle.bodyType,

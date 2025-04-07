@@ -81,13 +81,13 @@ setDashboardOption(option: string) {
   this.dashboardOption = option;
   this.saveState(); // Guardar el estado después de cada cambio
 }
-    // getVehicleType(id: string): VehicleType | null {
-    //   return Object.values(VEHICLE_TYPES).find(type => type.id === id) || null;
-    // }
-
-    getVehicleType(id: string | undefined | null): VehicleType | null {
-      return id ? VEHICLE_TYPES_MAP[id] ?? null : null;
+    getVehicleType(id: string): VehicleType | null {
+      return Object.values(VEHICLE_TYPES).find(type => type.id === id) || null;
     }
+
+    // getVehicleType(id: string | undefined | null): VehicleType | null {
+    //   return id ? VEHICLE_TYPES_MAP[id] ?? null : null;
+    // }
     // getVehicleType(id: string | undefined | null): VehicleType | null {
     //   if (!id) return null;
     //   return Object.values(VEHICLE_TYPES).find(type => type.id === id) || null;

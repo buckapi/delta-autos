@@ -65,6 +65,8 @@ export class RealtimeVehiclesService implements OnDestroy {
       model: vehicle.model,
       year: vehicle.year,
       price: vehicle.price,
+      vehicleTypeSelected: vehicle.vehicleTypeSelected,
+      vehicleType: vehicle.vehicleType,
       description: vehicle.description,
       files: Array.isArray(vehicle.files) ? vehicle.files : [],
     };

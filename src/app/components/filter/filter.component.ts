@@ -33,6 +33,7 @@ export class FilterComponent implements OnInit {
 
   selectVehicleType(typeId: string) {
     this.selectedType = typeId;
+    this.globalService.vehicleTypeSelected = true;
     this.globalService.typeIdSelected = typeId;
   }
 
