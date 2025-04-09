@@ -20,6 +20,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthService } from './services/auth.service';
 import { FormsModule } from '@angular/forms';
+import { RepairComponent } from './components/repair/repair.component';
+import { AutopartsComponent } from './components/autoparts/autoparts.component';
 declare var $: any; // Declaración para jQuery
 @Component({
   selector: 'app-root',
@@ -41,7 +43,9 @@ declare var $: any; // Declaración para jQuery
     ByBrandComponent,
     ShopComponent,
     FooterComponent,
-    BlogComponent
+    BlogComponent,
+    RepairComponent,
+    AutopartsComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
