@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ScriptLoaderService } from '../../services/loader.service';
+import { GlobalService } from '../../services/global.service';
 @Component({
   selector: 'app-slider',
   imports: [],
@@ -8,7 +9,9 @@ import { ScriptLoaderService } from '../../services/loader.service';
 })
 export class SliderComponent {
 
-  constructor(public scriptLoader: ScriptLoaderService) { 
+  constructor(public scriptLoader: ScriptLoaderService,
+    public global: GlobalService
+  ) { 
     this.loadScripts();
   }
   loadScripts() {

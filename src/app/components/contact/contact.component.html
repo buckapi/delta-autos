@@ -40,7 +40,7 @@
                 </div>
                 <div id="comments" class="comments">
                         <div class="respond-comment">                                       
-                            <form method="post" id="loan-calculator" class="comment-form form-submit" action="contact.html#" accept-charset="utf-8" novalidate="novalidate">
+                            <form (submit)="sendWhatsApp($event)" class="comment-form form-submit" novalidate="novalidate">
                                 <div class="grid-sw-2">
                                     <fieldset class="email-wrap style-text">
                                         <label class="font-1 fs-14 fw-5">Nombre</label>
@@ -65,10 +65,10 @@
                                     <label class="font-1 fs-14 fw-5">Tu mensaje</label>
                                     <textarea id="comment-message" name="message" rows="4" tabindex="4" placeholder="Tu mensaje" aria-required="true"></textarea>
                                 </fieldset>
-
+                            
                                 <div class="button-boxs">
-                                    <button class="sc-button" name="submit" type="submit">
-                                        <span>Enviar mensaje</span>
+                                    <button class="sc-button" type="submit">
+                                        <span>Enviar mensaje por WhatsApp</span>
                                     </button>
                                 </div>                                 
                             </form>
