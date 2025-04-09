@@ -135,5 +135,8 @@ export class AppComponent implements OnInit {
         console.error(error);
       });
   }
- 
+  
+  mostrarMensaje() {
+    alert("¡Bienvenido a Delta Autos Invermax! Ofrecemos venta de vehículos de salvamento, tanto reparados como sin reparar. También brindamos servicios de latonería y pintura, así como asesoramiento legal. ¡Estamos aquí para ayudarte!");
+  }
 }
