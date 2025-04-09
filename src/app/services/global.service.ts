@@ -13,6 +13,7 @@ export const VEHICLE_TYPES_MAP = Object.values(VEHICLE_TYPES).reduce((acc, type)
   providedIn: 'root'
 })
 export class GlobalService {
+  searchTerm: string = "";
   vehicle: Vehicle | null = null;
   activeRoute: string = "home";
   dashboardOption: string = "";
