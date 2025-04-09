@@ -107,7 +107,11 @@ import { AuthService } from '../../services/auth.service';
             'El vehículo ha sido eliminado correctamente.',
             'success'
           ).then(() => {
-            this.globalService.setRoute('home');
+            this.globalService.setRoute('dashboard');
+            this.globalService.dashboardOption = 'by-budget';
+            this.vehicle = null;
+            this.globalService.params = {};
+            this.globalService.vehicle = null;
           });
         } else {
           Swal.fire(

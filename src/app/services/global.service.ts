@@ -85,13 +85,6 @@ setDashboardOption(option: string) {
       return Object.values(VEHICLE_TYPES).find(type => type.id === id) || null;
     }
 
-    // getVehicleType(id: string | undefined | null): VehicleType | null {
-    //   return id ? VEHICLE_TYPES_MAP[id] ?? null : null;
-    // }
-    // getVehicleType(id: string | undefined | null): VehicleType | null {
-    //   if (!id) return null;
-    //   return Object.values(VEHICLE_TYPES).find(type => type.id === id) || null;
-    // }
     getRoute(){
       return this.activeRoute;
     }
@@ -103,15 +96,14 @@ getWhatsappUrl(): SafeUrl {
   if (!this.vehicle) return '';
   const message = this.getWhatsAppMessage();
   const url = `https://wa.me/${this.whatsappNumber}?text=${message}`;
-  console.log("whatsapp url", url);
-
+  // console.log("whatsapp url", url);
   return this.sanitizer.bypassSecurityTrustUrl(url);
 }
 
   getWhatsAppMessage(): string {
     if (!this.vehicle) return '';
     const message = `¡Hola! Me interesa el vehículo:
-Nombre: ${this.vehicle.name || 'Sin especificar'}
+Nombre: ${this.vehicle.brand || 'Sin especificar'}
 Descripcion: ${this.vehicle.description || 'Sin especificar'}
 Año: ${this.vehicle.year || 'Sin especificar'}
 Precio: $${this.vehicle.price?.toLocaleString() || 'Sin especificar'}
@@ -119,4 +111,4 @@ Precio: $${this.vehicle.price?.toLocaleString() || 'Sin especificar'}
 Gracias!`;
     return encodeURIComponent(message);
   }
-  }
+  } 
