@@ -80,7 +80,7 @@ export const VEHICLE_TYPES = {
     },
   } as const;
   
-  export const WHATSAPP_NUMBER = '+573023580293';
+  export const WHATSAPP_NUMBER = '+573233036339';
 
   /* Tipos para TypeScript (derivados de las constantes) */
   export type VehicleType = typeof VEHICLE_TYPES[keyof typeof VEHICLE_TYPES];
