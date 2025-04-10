@@ -10,7 +10,7 @@
                             <div class="logo"><a (click)="globalService.setRoute('home')"><img src="assets/images/logo/logo@2x.png"
                                         alt="" width="225" height="40"></a></div>
                         </div>
-                        <div class="nav-outer flex align-center" [hidden]="authService.isLogged()">
+                        <div class="nav-outer flex align-center d-none d-md-flex" [hidden]="authService.isLogged()">
                             <!-- Main Menu -->
                             <nav class="main-menu show navbar-expand-md" >
                                 <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent" >
@@ -18,16 +18,7 @@
                                         <li><a (click)="globalService.setRoute('home')">Inicio</a></li>
                                         <li><a (click)="globalService.setRoute('repair')">Reparaciones</a></li>
                                         <li><a (click)="globalService.setRoute('autoparts')">Autopartes</a></li>
-                                        <!-- <li class="dropdown2 "><a >Vehículos</a> -->
-                                            <li class=><a (click)="globalService.setRoute('shop')">Vehículos</a>                                           <!-- <ul>
-                                                <li><a (click)="globalService.setRoute('shop')">Vehiculos linea original</a></li>
-
-                                                <li><a (click)="globalService.setRoute('shop')">Vehiculos de Salvamento reparados</a></li>
-                                                <li><a (click)="globalService.setRoute('shop')">Vehiculos de Salvamento sin reparar</a></li>                                       
-                                                <li><a (click)="globalService.setRoute('shop')">Motos</a></li>                                       
-                                            </ul> -->
-                                        </li>
-                                        <!-- <li><a (click)="globalService.setRoute('blog-grid')">Noticias</a></li> -->
+                                        <li><a (click)="globalService.setRoute('shop')">Vehículos</a></li>
                                         <li><a (click)="globalService.setRoute('contact')">Contacto</a></li>
                                     </ul>
                                 </div>
@@ -85,9 +76,19 @@
     <div class="mobile-menu">
         <div class="menu-backdrop"></div>
         <nav class="menu-box">
-            <div class="nav-logo"><a ><img src="assets/images/logo/logo@2x.png" alt=""
-                        width="197" height="48"></a></div>
-            <div class="bottom-canvas">
+            <div class="nav-logo">
+                <a ><img src="assets/images/logo/logo@2x.png" alt=""
+                        width="197" height="48">
+                </a>
+                <ul class="navigation clearfix">
+                    <li><a (click)="globalService.setRoute('home')">Inicio</a></li>
+                    <li><a (click)="globalService.setRoute('repair')">Reparaciones</a></li>
+                    <li><a (click)="globalService.setRoute('autoparts')">Autopartes</a></li>
+                    <li><a (click)="globalService.setRoute('shop')">Vehículos</a></li>
+                    <li><a (click)="globalService.setRoute('contact')">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="bottom-canvas d-none d-md-flex">
                 <div class="login-box flex align-center">
                     <i class="icon-autodeal-user fs-20"></i>
                     <a data-bs-toggle="modal" data-bs-target="#popup_bid"
