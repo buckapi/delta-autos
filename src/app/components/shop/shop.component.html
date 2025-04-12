@@ -3,29 +3,14 @@
     <div class="container2">
         <div class="row">
             <div class="col-lg-12">
-                <div class="heading-section">
-                    <!-- <h2>10,000+ autos</h2> -->
-                    <!-- <p class="mt-20">Autos nuevos, de segunda mano y colisionados </p> -->
-                </div>
+                <div class="heading-section"></div>
             </div>
             <div class="col-lg-12 flex gap-30 text-start">
-              
                 <div class="sidebar-left-listing">
                     <div class="row">
                         <div class="col-lg-12 listing-list-car-wrap listing-grid-car-wrap">
                             <div class="flat-tabs themesflat-tabs category-filter">
                                 <div class="box-tab center flex-two mb-40 flex-wrap gap-20">
-                                    <!-- <ul class="menu-tab tab-title style1 flex">
-                                        <li class="item-title active ">
-                                            <h5 class="inner">Nuevos</h5>
-                                        </li>
-                                        <li class="item-title">
-                                            <h5 class="inner">Usados</h5>
-                                        </li>
-                                        <li class="item-title">
-                                            <h5 class="inner ">Colisionados</h5>
-                                        </li>
-                                    </ul> -->
                                     <ul class="enu-tab tab-title style1 flex">
                                         <li 
                                         class="item-title style" 
@@ -35,17 +20,9 @@
                                         (click)="selectVehicleType(type.id)">
                                         <span class="inner fs-16 fw-5 lh-20">{{ type.name }}</span>
                                     </li>
-                                        <!-- <li [hidden]="type.id === 'p3dknr5mjqszwvy'" 
-                                            class="item-title style" 
-                                            [class.active]="isSelected(type.id)"
-                                            style="cursor: pointer; height: 100% !important; width: 100% !important;"
-                                            *ngFor="let type of vehicleTypes; let index = index"
-                                            (click)="selectVehicleType(type.id)">
-                                            <span class="inner fs-16 fw-5 lh-20">{{ type.name }}</span>
-                                        </li> -->
                                     </ul>
                                 </div>
-                                    <div class="box-2 flex gap-8 flex-wrap">
+                                    <div class="box-2 flex gap-8 flex-wrap pb-3">
                                         <div class="filter-mobie">
                                             <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="filter">Filter<i class="icon-autodeal-filter"></i></a>
                                         </div>
@@ -106,30 +83,8 @@
                                         </a>
                                         <div class="wd-find-select flex gap-8">
                                             <div class="group-select">
-                                                <!-- <div class="nice-select" tabindex="0"><span
-                                                        class="current">Show: 50</span>
-                                                    <ul class="list style">
-                                                        <li data-value="10" class="option">Show: 10</li>
-                                                        <li data-value="30" class="option">Show: 30</li>
-                                                        <li data-value="50" class="option selected focus">
-                                                            Show: 50</li>
-                                                        <li data-value="100" class="option">Show: 100</li>
-                                                    </ul>
-                                                </div> -->
                                             </div>
                                             <div class="group-select">
-                                                <!-- <div class="nice-select" tabindex="0"><span
-                                                        class="current">Default order</span>
-                                                    <ul class="list style">
-                                                        <li data-value="" class="option selected focus">
-                                                            Default order</li>
-                                                        <li data-value="by-latest" class="option">All </li>
-                                                        <li data-value="low-to-high" class="option">Low to
-                                                            high</li>
-                                                        <li data-value="high-to-low" class="option">High to
-                                                            low</li>
-                                                    </ul>
-                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -139,66 +94,12 @@
                                         <div class="list-car-list-1 list-car-grid-1" >
                                             <div
                                             [hidden]="global.vehicleTypeSelected && global.typeIdSelected !== vehicle.vehicleType?.id"
-                                            class="box-car-list style-2 hv-one" *ngFor="let vehicle of realtimeVehiclesService.vehicles$| async">
+                                            class="box-car-list style-2 hv-one hover-effect" 
+                                            *ngFor="let vehicle of realtimeVehiclesService.vehicles$| async">
                                                 <div class="image-group relative ">
                                                     <div class="top flex-two">
-                                  
                                                         <div class="year flag-tag">{{ vehicle.year }}</div>
                                                       </div>
-                                                    <!-- <div class="top flex-two">
-                                                        <ul class="d-flex gap-8">
-                                                            <li class="flag-tag success">Destacado</li>
-                                                            <li class="flag-tag style-1">
-                                                                <div class="icon">
-                                                                    <svg width="16" height="13"
-                                                                        viewBox="0 0 16 13" fill="none"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path
-                                                                            d="M1.5 9L4.93933 5.56067C5.07862 5.42138 5.24398 5.31089 5.42597 5.2355C5.60796 5.16012 5.80302 5.12132 6 5.12132C6.19698 5.12132 6.39204 5.16012 6.57403 5.2355C6.75602 5.31089 6.92138 5.42138 7.06067 5.56067L10.5 9M9.5 8L10.4393 7.06067C10.5786 6.92138 10.744 6.81089 10.926 6.7355C11.108 6.66012 11.303 6.62132 11.5 6.62132C11.697 6.62132 11.892 6.66012 12.074 6.7355C12.256 6.81089 12.4214 6.92138 12.5607 7.06067L14.5 9M2.5 11.5H13.5C13.7652 11.5 14.0196 11.3946 14.2071 11.2071C14.3946 11.0196 14.5 10.7652 14.5 10.5V2.5C14.5 2.23478 14.3946 1.98043 14.2071 1.79289C14.0196 1.60536 13.7652 1.5 13.5 1.5H2.5C2.23478 1.5 1.98043 1.60536 1.79289 1.79289C1.60536 1.98043 1.5 2.23478 1.5 2.5V10.5C1.5 10.7652 1.60536 11.0196 1.79289 11.2071C1.98043 11.3946 2.23478 11.5 2.5 11.5ZM9.5 4H9.50533V4.00533H9.5V4ZM9.75 4C9.75 4.0663 9.72366 4.12989 9.67678 4.17678C9.62989 4.22366 9.5663 4.25 9.5 4.25C9.4337 4.25 9.37011 4.22366 9.32322 4.17678C9.27634 4.12989 9.25 4.0663 9.25 4C9.25 3.9337 9.27634 3.87011 9.32322 3.82322C9.37011 3.77634 9.4337 3.75 9.5 3.75C9.5663 3.75 9.62989 3.77634 9.67678 3.82322C9.72366 3.87011 9.75 3.9337 9.75 4Z"
-                                                                            stroke="white"
-                                                                            stroke-width="1.5"
-                                                                            stroke-linecap="round"
-                                                                            stroke-linejoin="round" />
-                                                                    </svg>
-                                                                </div>
-                                                                6
-                                                            </li>
-                                                        </ul>
-                                                        <div class="year flag-tag">2024</div>
-                                                    </div> -->
-                                                    <!-- <ul class="change-heart flex">
-                                                        <li class="box-icon w-32">
-                                                            <a data-bs-toggle="offcanvas"
-                                                                data-bs-target="#offcanvasBottom"
-                                                                aria-controls="offcanvasBottom"
-                                                                class="icon">
-                                                                <svg width="18" height="18"
-                                                                    viewBox="0 0 18 18" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M5.25 16.5L1.5 12.75M1.5 12.75L5.25 9M1.5 12.75H12.75M12.75 1.5L16.5 5.25M16.5 5.25L12.75 9M16.5 5.25H5.25"
-                                                                        stroke="CurrentColor"
-                                                                        stroke-width="1.5"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                </svg>
-                                                            </a>
-                                                        </li>
-                                                        <li class="box-icon w-32">
-                                                            <a href="" class="icon">
-                                                                <svg width="18" height="16"
-                                                                    viewBox="0 0 18 16" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M16.5 4.875C16.5 2.80417 14.7508 1.125 12.5933 1.125C10.9808 1.125 9.59583 2.06333 9 3.4025C8.40417 2.06333 7.01917 1.125 5.40583 1.125C3.25 1.125 1.5 2.80417 1.5 4.875C1.5 10.8917 9 14.875 9 14.875C9 14.875 16.5 10.8917 16.5 4.875Z"
-                                                                        stroke="CurrentColor"
-                                                                        stroke-width="1.5"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                </svg>
-                                                            </a>
-                                                        </li>
-                                                    </ul> -->
                                                     <app-vehicle-slider [images]="vehicle.files"></app-vehicle-slider>
                                                 </div>
                                                 <div class="content">
@@ -209,20 +110,6 @@
                                                         <h5 class="link-style-1">
                                                             <a (click)="global.setRoute('car-detail', { id: vehicle.id })">{{vehicle.description}}</a>
                                                         </h5>
-                                                        <!-- <div class="icon-box flex flex-wrap">
-                                                            <div class="icons flex-three">
-                                                                <i class="icon-autodeal-km1"></i>
-                                                                <span>72,491 kms</span>
-                                                            </div>
-                                                            <div class="icons flex-three">
-                                                                <i class="icon-autodeal-diesel"></i>
-                                                                <span>Diesel</span>
-                                                            </div>
-                                                            <div class="icons flex-three">
-                                                                <i class="icon-autodeal-automatic"></i>
-                                                                <span>Automatic</span>
-                                                            </div>
-                                                        </div> -->
                                                         <div class="money fs-20 fw-5 lh-25 text-color-3">
                                                             <span style="color: #000">
                                                                 $ COP
@@ -232,16 +119,12 @@
                                                             class="view-car">Ver detalles<i
                                                                 class="icon-autodeal-btn-right"></i></a>
                                                     </div>
-                                                   
                                                 </div>
                                             </div>
-                                            
-
                                         </div>
                                     </div>
-                                    
                                 </div>
-                                <div class="themesflat-pagination clearfix mt-40">
+                                <!-- <div class="themesflat-pagination clearfix mt-40">
                                     <ul>
                                         <li><a href="" class="page-numbers style">
                                             <i class="fas fa-chevron-left"></i> 
@@ -254,15 +137,11 @@
                                         <li><a href="" class="page-numbers style"><i
                                                     class="fa fa-angle-right"></i></a></li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
-
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
-    
 </section>

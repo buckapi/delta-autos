@@ -31,7 +31,7 @@
                             <div class="list-car-grid-2">
                                 <div
                                 [hidden]="globalService.vehicleTypeSelected && globalService.typeIdSelected !== vehicle.vehicleType?.id"
-                                 class="box-car-list style-2 hv-one" *ngFor="let vehicle of realtimeVehiclesService.vehicles$| async">
+                                 class="box-car-list style-2 hv-one" *ngFor="let vehicle of (realtimeVehiclesService.vehicles$ | async | slice:0:4)">
                                     <div class="image-group relative">
                                       <div class="top flex-two">
                                   
@@ -82,3 +82,4 @@
         </div>
     </div>
 </section>
+<button class="sc-button mx-auto d-block mb-5" (click)="globalService.setRoute('shop')" style="border: 1px solid #fff; font-weight: 500; font-size: 16px;  color: #fff;">Ver más</button>
