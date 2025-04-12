@@ -20,6 +20,7 @@ import { VehicleService } from '../../services/vehicle.service';
   styleUrl: './add-vehicle.component.css'
 })
 export class AddVehicleComponent {
+  printing: boolean = false;
   private pb: PocketBase;
   selectedImages: { file: File, preview: string }[] = [];
 

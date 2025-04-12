@@ -156,43 +156,72 @@ import { AuthService } from '../../services/auth.service';
         });
     }
     async generatePDF() {
-      const element = document.getElementById('pdf-content');
       
-      if (!element) {
-        console.error('No se encontró el elemento con id "pdf-content"');
-        return;
+      // Ocultar elementos no deseados y mostrar el grid
+      const swiper = document.querySelector('.swiper') as HTMLElement;
+      const pdfGrid = document.querySelector('.pdf-grid') as HTMLElement;
+      const elementsToHide = document.querySelectorAll('.exclude-from-pdf');
+      elementsToHide.forEach(el => (el as HTMLElement).style.display = 'none');
+      if (swiper && pdfGrid) {
+        swiper.style.display = 'none';
+        pdfGrid.style.display = 'block';
       }
     
+      const element = document.getElementById('pdf-content');
+      
       try {
-        const canvas = await html2canvas(element, {
+        const canvas = await html2canvas(element as HTMLElement, {
           scale: 2,
           logging: false,
           useCORS: true,
           allowTaint: true
         });
-    
         const pdf = new jsPDF('p', 'mm', 'a4');
+        
         const imgData = canvas.toDataURL('image/png');
         const imgWidth = 210;
         const pageHeight = 295;
         const imgHeight = canvas.height * imgWidth / canvas.width;
         let heightLeft = imgHeight;
         let position = 0;
-    
+        
         pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
-    
+        
         while (heightLeft >= 0) {
           position = heightLeft - imgHeight;
           pdf.addPage();
           pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
           heightLeft -= pageHeight;
         }
-    
-        // Línea corregida:
+        
         pdf.save(`Detalle_${this.globalService.vehicle?.name?.replace(/\s+/g, '_') ?? 'vehiculo'}.pdf`);
+    
+        // Restaurar visibilidad original
+        if (swiper && pdfGrid) {
+          swiper.style.display = 'block';
+          pdfGrid.style.display = 'none';
+        }
+    
+        // Resto del código para generar el PDF...
       } catch (error) {
+        // Asegurarse de restaurar la visibilidad incluso si hay error
+        if (swiper && pdfGrid) {
+          swiper.style.display = 'block';
+          pdfGrid.style.display = 'none';
+        }
         console.error('Error al generar el PDF:', error);
       }
     }
+    
+    // Agrega esta función para dividir las imágenes en filas de 3
+    get imageRows(): any[][] {
+      const images = this.globalService.vehicle?.files || [];
+      const rows = [];
+      for (let i = 0; i < images.length; i += 3) {
+        rows.push(images.slice(i, i + 3));
+      }
+      return rows;
+    }
+    
   }

@@ -61,3 +61,28 @@
     .fa {
       font-size: 15px !important;
     }
+    /* En tu archivo CSS global o en el componente */
+.pdf-grid .grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pdf-grid .grid-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.pdf-grid .grid-item {
+  width: 100%;
+  height: 400px; /* Altura fija para uniformidad */
+  overflow: hidden;
+}
+
+.pdf-grid .grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

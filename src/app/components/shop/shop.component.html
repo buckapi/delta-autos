@@ -18,8 +18,8 @@
                                         style="cursor: pointer; height: 100% !important; width: 100% !important;"
                                         *ngFor="let type of vehicleTypes; let index = index"
                                         (click)="selectVehicleType(type.id)">
-                                        <span class="inner fs-16 fw-5 lh-20">{{ type.name }}</span>
-                                    </li>
+                                            <span class="inner fs-16 fw-5 lh-20">{{ type.name }}</span>
+                                        </li>
                                     </ul>
                                 </div>
                                     <div class="box-2 flex gap-8 flex-wrap pb-3">
@@ -102,7 +102,7 @@
                                                       </div>
                                                     <app-vehicle-slider [images]="vehicle.files"></app-vehicle-slider>
                                                 </div>
-                                                <div class="content">
+                                                <div class="content" (click)="global.setRoute('car-detail', { id: vehicle.id })"  style="cursor: pointer;">
                                                     <div class="inner1">
                                                         <div class="text-address">
                                                             <p class="text-color-3 font">{{vehicle.brand}}</p>

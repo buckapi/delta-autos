@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="title-inner style">
                     <div class="title-group fs-12" [hidden]="authService.isLogged()"><a class="home fw-6 text-color-3"
-                            (click)="globalService.setRoute('home')">Inicio</a>
+                            (click)="globalService.setRoute('shop')">ver todos los vehículos</a>
                         </div>
                         <div class=""><a class="home fw-6 text-color-3" [hidden]="!authService.isLogged()"
                             (click)="globalService.setRoute('dashboard')">
@@ -24,7 +24,7 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide" *ngFor="let image of globalService.vehicle.files">
                     <div class="image-list-details">
-                        <a class="image" href="{{image}}" data-fancybox="gallery">
+                        <a class="image" href="{{image}}"  target="_blank" data-fancybox="gallery">
                             <img class="lazyload" data-src="{{image}}" src="{{image}}" alt="image">
                         </a>
                     </div>
@@ -32,6 +32,15 @@
             </div>
             <div class="swiper-pagination3"></div>
         </div>
+        <div class="pdf-grid" style="display: none;">
+            <div class="grid-container">
+              <div class="grid-row" *ngFor="let row of imageRows">
+                <div class="grid-item" *ngFor="let image of row">
+                  <img [src]="image" alt="image" style="width: 100%; height: auto;">
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
     <div class="container">                   
         <div class="row">
@@ -84,7 +93,7 @@
                                             <span style="font-weight: 900; padding: 10px;">Precio: </span>
                                            
                                             <br>
-                                            {{ vehicle?.price }}
+                                            {{ vehicle?.price | number:'1.0-0' }}
                                             <button  [hidden]="!authService.isLogged()" (click)="startEditing('price', vehicle?.price)" class="btn btn-sm btn-link">
                                                 <i class="fa fa-edit"></i>
                                             </button>
@@ -175,169 +184,7 @@
                                     </svg> Descargar PDF
                                       </button>
                                 </div>
-                                
-                            
-                               
-                                <!-- <div class="listing-features footer-col-block" id="scrollspyHeading2">
-                                    <div class="footer-heading-desktop ">
-                                        <h2>Features</h2>
-                                    </div>
-                                    <div class="footer-heading-mobie listing-details-mobie mb-30">
-                                        <h2>Features</h2>
-                                    </div>
-                                    <div class="features-inner tf-collapse-content mt-30">
-                                        <div class="inner">
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Touch Screen</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Alloy Wheels </p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Fog Lights - Front</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Anti Lock Braking System</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Multi-function Steering Wheel</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Automatic Climate Control</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Power Windows Rear</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Engine Start Stop Button</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Power Steering</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Power Windows Front</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Passenger Airbag</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p> Driver Airbag</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Air Conditioner</p>
-                                            </div>
-                                            <div class="listing-feature-wrap flex">
-                                                <i class="icon-autodeal-check"></i>
-                                                <p>Power Adjustable Exterior Rear View Mirror</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12 flat-accordion">
-                                            <div class="flat-toggle style-1">
-                                                <div class="toggle-title flex align-center">
-                                                    <h5 class="fw-6">Comfort & Convenience</h5>
-                                                    <div class="btn-toggle"></div>
-                                                </div>
-                                                <div class="toggle-content section-desc">
-                                                    <p class="texts">Proin sed tellus porttitor,
-                                                        varius mauris vitae, tincidunt augue. Sed
-                                                        consectetur magna elit, sit amet faucibus
-                                                        tortor sodales vitae. Maecenas quis arcu
-                                                        est. Nam sit amet neque vestibulum,
-                                                        fringilla elit sit amet, volutpat nunc.</p>
-                                                </div>
-                                            </div>
-                                            <div class="flat-toggle style-1">
-                                                <div class="toggle-title flex align-center">
-                                                    <h5 class="fw-6">Interior</h5>
-                                                    <div class="btn-toggle"></div>
-                                                </div>
-                                                <div class="toggle-content section-desc">
-                                                    <p class="texts">Proin sed tellus porttitor,
-                                                        varius mauris vitae, tincidunt augue. Sed
-                                                        consectetur magna elit, sit amet faucibus
-                                                        tortor sodales vitae. Maecenas quis arcu
-                                                        est. Nam sit amet neque vestibulum,
-                                                        fringilla elit sit amet, volutpat nunc.</p>
-                                                </div>
-                                            </div>
-                                            <div class="flat-toggle style-1">
-                                                <div class="toggle-title flex align-center">
-                                                    <h5 class="fw-6">Exterior</h5>
-                                                    <div class="btn-toggle"></div>
-                                                </div>
-                                                <div class="toggle-content section-desc">
-                                                    <p class="texts">Proin sed tellus porttitor,
-                                                        varius mauris vitae, tincidunt augue. Sed
-                                                        consectetur magna elit, sit amet faucibus
-                                                        tortor sodales vitae. Maecenas quis arcu
-                                                        est. Nam sit amet neque vestibulum,
-                                                        fringilla elit sit amet, volutpat nunc.</p>
-                                                </div>
-                                            </div>
-                                            <div class="flat-toggle style-1">
-                                                <div class="toggle-title flex align-center">
-                                                    <h5 class="fw-6">Safety</h5>
-                                                    <div class="btn-toggle"></div>
-                                                </div>
-                                                <div class="toggle-content section-desc">
-                                                    <p class="texts">Proin sed tellus porttitor,
-                                                        varius mauris vitae, tincidunt augue. Sed
-                                                        consectetur magna elit, sit amet faucibus
-                                                        tortor sodales vitae. Maecenas quis arcu
-                                                        est. Nam sit amet neque vestibulum,
-                                                        fringilla elit sit amet, volutpat nunc.</p>
-                                                </div>
-                                            </div>
-                                            <div class="flat-toggle style-1">
-                                                <div class="toggle-title flex align-center">
-                                                    <h5 class="fw-6">Entertainment & Communication
-                                                    </h5>
-                                                    <div class="btn-toggle"></div>
-                                                </div>
-                                                <div class="toggle-content section-desc">
-                                                    <p class="texts">Proin sed tellus porttitor,
-                                                        varius mauris vitae, tincidunt augue. Sed
-                                                        consectetur magna elit, sit amet faucibus
-                                                        tortor sodales vitae. Maecenas quis arcu
-                                                        est. Nam sit amet neque vestibulum,
-                                                        fringilla elit sit amet, volutpat nunc.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                
-                                <!-- <div class="listing-location" id="scrollspyHeading3">
-                                    <div class="box-title">
-                                        <h2 class="title-ct">Location</h2>
-                                        <div class="list-icon-pf gap-8 flex-three">
-                                            <i class="far fa-map"></i>
-                                            <p class="font-1">2972 Westheimer Rd. Santa Ana,
-                                                Illinois 85486 </p>
-                                        </div>
-                                    </div>
-                                    <iframe class="map-content"
-                                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7302.453092836291!2d90.47477022812872!3d23.77494577893369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1627293157601!5m2!1svi!2s"
-                                        allowfullscreen="" loading="lazy"></iframe>
-
-
-                                </div> -->
-                                
+                       
                             </div>
                         </div>
                     </div>
@@ -355,7 +202,7 @@
                                     <span class="fs-16 fw-5 lh-20 font text-color-1">Eliminar</span>
                                 </button>
                                 <br>
-                                <div class="verified flex-three">
+                                <!-- <div class="verified flex-three">
                                     <div class="icon">
                                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -368,11 +215,11 @@
                                     
                                     <span class="fs-12 fw-6 lh-16">Contacto Oficial</span>
                                     
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                       
-                        <div class="profile-contact">
+                        <div class="profile-contact exclude-from-pdf">
                             <h6>Contactar por whatsapp</h6>
                             <div class="btn-contact flex-two">
                                 <a [href]="globalService.getWhatsappUrl()" target="_blank" class="btn-pf bg-green">
@@ -382,7 +229,7 @@
                               
                             </div>
                         </div>
-                        <div  class="profile-contact">
+                        <div  class="profile-contact exclude-from-pdf">
                             <h6>Descargar ficha técnica PDF</h6>
                            
                             <button (click)="generatePDF()" class="btn btn-primary mb-4">
