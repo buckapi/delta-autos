@@ -155,65 +155,151 @@ import { AuthService } from '../../services/auth.service';
           console.error(error);
         });
     }
-    async generatePDF() {
+
+    copyLink(): void {
+      const vehicleId = this.globalService.vehicle?.id;
+      if (!vehicleId) return;
+  
+      const url = `${window.location.origin}/?vehicleId=${vehicleId}`;
       
-      // Ocultar elementos no deseados y mostrar el grid
-      const swiper = document.querySelector('.swiper') as HTMLElement;
-      const pdfGrid = document.querySelector('.pdf-grid') as HTMLElement;
-      const elementsToHide = document.querySelectorAll('.exclude-from-pdf');
-      elementsToHide.forEach(el => (el as HTMLElement).style.display = 'none');
-      if (swiper && pdfGrid) {
-        swiper.style.display = 'none';
-        pdfGrid.style.display = 'block';
-      }
-    
-      const element = document.getElementById('pdf-content');
-      
-      try {
-        const canvas = await html2canvas(element as HTMLElement, {
-          scale: 2,
-          logging: false,
-          useCORS: true,
-          allowTaint: true
+      // Copiar al portapapeles
+      navigator.clipboard.writeText(url).then(() => {
+        Swal.fire({
+          icon: 'success',
+          title: '¡Enlace copiado!',
+          text: 'El enlace se ha copiado al portapapeles',
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          customClass: {
+            popup: 'colored-toast'
+          }
         });
-        const pdf = new jsPDF('p', 'mm', 'a4');
-        
-        const imgData = canvas.toDataURL('image/png');
-        const imgWidth = 210;
-        const pageHeight = 295;
-        const imgHeight = canvas.height * imgWidth / canvas.width;
-        let heightLeft = imgHeight;
-        let position = 0;
-        
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-        
-        while (heightLeft >= 0) {
-          position = heightLeft - imgHeight;
-          pdf.addPage();
+      }).catch(err => {
+        console.error('Error al copiar:', err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'No se pudo copiar el enlace',
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          customClass: {
+            popup: 'colored-toast'
+          }
+        });
+      });
+    }
+   
+
+
+    async generatePDF() {
+      // Mostrar notificación de carga
+      const loadingToast = Swal.fire({
+          title: 'Generando PDF...',
+          html: 'Por favor, espere...',
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          didOpen: () => {
+              Swal.showLoading();
+          }
+      });
+  
+      try {
+          // Ocultar elementos no deseados y mostrar el grid
+          const swiper = document.querySelector('.swiper') as HTMLElement;
+          const pdfGrid = document.querySelector('.pdf-grid') as HTMLElement;
+          const elementsToHide = document.querySelectorAll('.exclude-from-pdf');
+          elementsToHide.forEach(el => (el as HTMLElement).style.display = 'none');
+          if (swiper && pdfGrid) {
+              swiper.style.display = 'none';
+              pdfGrid.style.display = 'block';
+          }
+  
+          const element = document.getElementById('pdf-content');
+  
+          if (!element) {
+              console.error('No se encontró el elemento con id "pdf-content"');
+              throw new Error('No se encontró el contenido para generar el PDF');
+          }
+  
+          const canvas = await html2canvas(element as HTMLElement, {
+              scale: 2,
+              logging: false,
+              useCORS: true,
+              allowTaint: true
+          });
+  
+          const pdf = new jsPDF('p', 'mm', 'a4');
+          
+          const imgData = canvas.toDataURL('image/png');
+          const imgWidth = 210;
+          const pageHeight = 295;
+          const imgHeight = canvas.height * imgWidth / canvas.width;
+          let heightLeft = imgHeight;
+          let position = 0;
+          
           pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
           heightLeft -= pageHeight;
-        }
-        
-        pdf.save(`Detalle_${this.globalService.vehicle?.name?.replace(/\s+/g, '_') ?? 'vehiculo'}.pdf`);
-    
-        // Restaurar visibilidad original
-        if (swiper && pdfGrid) {
-          swiper.style.display = 'block';
-          pdfGrid.style.display = 'none';
-        }
-    
-        // Resto del código para generar el PDF...
+          
+          while (heightLeft >= 0) {
+              position = heightLeft - imgHeight;
+              pdf.addPage();
+              pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+              heightLeft -= pageHeight;
+          }
+          
+          // Mostrar notificación de éxito
+          Swal.fire({
+              icon: 'success',
+              title: 'PDF generado',
+              text: 'El PDF se ha generado correctamente',
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              customClass: {
+                  popup: 'colored-toast'
+              }
+          });
+  
+          pdf.save(`Detalle_${this.globalService.vehicle?.name?.replace(/\s+/g, '_') ?? 'vehiculo'}.pdf`);
+      
+          // Restaurar visibilidad original
+          if (swiper && pdfGrid) {
+              swiper.style.display = 'block';
+              pdfGrid.style.display = 'none';
+          }
+      
+          elementsToHide.forEach(el => (el as HTMLElement).style.display = 'block');
+      
       } catch (error) {
-        // Asegurarse de restaurar la visibilidad incluso si hay error
-        if (swiper && pdfGrid) {
-          swiper.style.display = 'block';
-          pdfGrid.style.display = 'none';
-        }
-        console.error('Error al generar el PDF:', error);
+          console.error('Error al generar el PDF:', error);
+          // Mostrar notificación de error
+          Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'No se pudo generar el PDF',
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              customClass: {
+                  popup: 'colored-toast'
+              }
+          });
+      } finally {
+        Swal.close();
+          // Cerrar la notificación de carga
+      
       }
-    }
-    
+  }
     // Agrega esta función para dividir las imágenes en filas de 3
     get imageRows(): any[][] {
       const images = this.globalService.vehicle?.files || [];

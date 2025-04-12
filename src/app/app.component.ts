@@ -22,6 +22,9 @@ import { AuthService } from './services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { RepairComponent } from './components/repair/repair.component';
 import { AutopartsComponent } from './components/autoparts/autoparts.component';
+import { RealtimeVehiclesService } from './services/realtime-vehicles.service';
+import { map } from 'rxjs';
+import { Vehicle } from './interfaces/vehicle.interface';
 declare var $: any; // Declaración para jQuery
 @Component({
   selector: 'app-root',
@@ -59,10 +62,11 @@ export class AppComponent implements OnInit {
   constructor(
     private scriptLoader: ScriptLoaderService,
     public authService: AuthService,
-
-     public globalService: GlobalService) {}
+    public realtimeVehiclesService: RealtimeVehiclesService,
+    public globalService: GlobalService) {}
   ngOnInit() {
     this.loadScripts();
+    this.checkVehicleId();
   }
 
   closeModal() {
@@ -75,6 +79,23 @@ export class AppComponent implements OnInit {
       document.body.style.paddingRight = '0';
       // Eliminar el backdrop de Bootstrap si existe
       this.cleanupBackdrops();
+    }
+  }
+  private checkVehicleId() {
+    // Verificar si hay un parámetro vehicleId en la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const vehicleId = urlParams.get('vehicleId');
+
+    if (vehicleId) {
+      // Buscar el vehículo correspondiente
+      this.realtimeVehiclesService.vehicles$.pipe(
+        map((vehicles: Vehicle[]) => vehicles.find(v => v.id === vehicleId))
+      ).subscribe(v => {
+        if (v) {
+          this.globalService.vehicle = v;
+          this.globalService.setRoute('car-detail', { id: vehicleId });
+        }
+      });
     }
   }
   private cleanupBackdrops() {
